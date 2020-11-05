@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Pomodoro from "./components/Pomodoro/Pomodoro";
 import  Navbar  from "./components/navbar/Navbar";
 import Home from "./components/Home/Home";
+import Profile from "./components/Profile/Profile";
 function App() {
 
   return (
@@ -26,7 +27,7 @@ function App() {
                 <Login />
             </Route>
             <Route path="/profile">
-                <h1>One step at a time</h1>
+                <Profile />
             </Route>
             <Route path="/">
                 <Home />
