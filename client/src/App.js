@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from "./components/Login";
 import Pomodoro from "./components/Pomodoro/Pomodoro";
 import  Navbar  from "./components/navbar/Navbar";
+import Home from "./components/Home/Home";
 function App() {
 
   return (
@@ -28,7 +29,7 @@ function App() {
                 <h1>One step at a time</h1>
             </Route>
             <Route path="/">
-                <h1> You made it home </h1>
+                <Home />
             </Route>
         </Switch>
     </BrowserRouter>
