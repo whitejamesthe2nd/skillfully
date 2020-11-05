@@ -67,7 +67,7 @@ export const fifteenTimer = () => {
         let seconds = Math.floor((distance % 60));
 
         // Display the result in the element with id="timer"
-        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s " ;
 
         // If the count down is finished, write some text
         if (distance < 0) {
