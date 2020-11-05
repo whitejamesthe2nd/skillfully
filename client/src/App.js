@@ -24,6 +24,9 @@ function App() {
             <Route path="/login">
                 <Login />
             </Route>
+            <Route path="/profile">
+                <h1>One step at a time</h1>
+            </Route>
             <Route path="/">
                 <h1> You made it home </h1>
             </Route>

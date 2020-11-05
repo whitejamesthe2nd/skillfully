@@ -14,21 +14,21 @@ const useStyles = makeStyles({
     firstButtonDiv: {
         gridRowStart: '3',
         gridColumnStart: '2',
-        backgroundColor: 'yellow',
+        // backgroundColor: 'yellow',
         display: 'flex',
         justifyContent: 'center'
     },
     secondButtonDiv: {
         gridRowStart: '3',
         gridColumnStart: '4',
-        backgroundColor: 'blue',
+        // backgroundColor: 'blue',
         display: 'flex',
         justifyContent: 'center'
     },
     thirdButtonDiv: {
         gridRowStart: '3',
         gridColumnStart: '6',
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         display: 'flex',
         justifyContent: 'center'
     },

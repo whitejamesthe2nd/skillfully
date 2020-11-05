@@ -6,9 +6,10 @@ function Navbar() {
   return (
         <nav>
             <div>
-                <span><NavLink to="/pomodoro" activeclass="active">Pomodoro</NavLink></span>
-                <span><NavLink to="/login" activeclass="active">Login</NavLink></span>
-                <span><NavLink to="/" activeclass="active">Home</NavLink></span>
+                <button><NavLink to="/pomodoro" activeclass="active">Pomodoro </NavLink></button>
+                <button><NavLink to="/login" activeclass="active">Login </NavLink></button>
+                <button><NavLink to="/profile" activeclass="active">Profile </NavLink></button>
+                <button><NavLink to="/" activeclass="active">Home </NavLink></button>
             </div>
         </nav>
   );

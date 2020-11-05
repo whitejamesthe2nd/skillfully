@@ -20,7 +20,8 @@ export const fourtyTimer = () => {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("timer").innerHTML = "EXPIRED";
+            document.getElementById("timer").innerHTML = "Estatic Experience";
+            window.alert('One more step to mastery down');
         }
     }, 1000);
 }
@@ -46,7 +47,8 @@ export const twentyTimer = () => {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("timer").innerHTML = "EXPIRED";
+            document.getElementById("timer").innerHTML = "Sweet Victory";
+            window.alert('One more step to mastery down');
         }
     }, 1000);
 }
@@ -70,7 +72,8 @@ export const fifteenTimer = () => {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("timer").innerHTML = "EXPIRED";
+            document.getElementById("timer").innerHTML = "Feel refreshed?";
+            window.alert('The rest ends and the struggle begins');
         }
     }, 1000);
 }
