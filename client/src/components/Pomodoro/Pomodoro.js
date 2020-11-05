@@ -43,11 +43,16 @@ const useStyles = makeStyles({
         fontSize: '22px'
     },
     timer: {
+
         gridColumnStart: "4",
         gridRowStart: "2",
         color: 'White',
         fontSize: '42px',
-        textAlign: 'Center'
+        textAlign: 'Center',
+        backgroundColor: 'black',
+        height: '75px',
+        paddingTop: '30px',
+        borderRadius:'7px'
     }
 
 })
