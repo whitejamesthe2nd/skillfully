@@ -5,10 +5,6 @@ export const fourtyTimer = () => {
     // Update the count down every 1 second
     let x = setInterval(function () {
 
-        // Get today's date and time
-        let now = new Date().getTime();
-
-        // Find the distance between now and the count down date
         distance = distance - 1;
 
         let minutes = Math.floor((distance / 60));
@@ -32,10 +28,6 @@ export const twentyTimer = () => {
     // Update the count down every 1 second
     let x = setInterval(function () {
 
-        // Get today's date and time
-        let now = new Date().getTime();
-
-        // Find the distance between now and the count down date
         distance = distance - 1;
 
         let minutes = Math.floor((distance / 60));
@@ -59,8 +51,6 @@ export const fifteenTimer = () => {
     // Update the count down every 1 second
     let x = setInterval(function () {
 
-
-        // Find the distance between now and the count down date
         distance = distance - 1;
 
         let minutes = Math.floor((distance / 60));
