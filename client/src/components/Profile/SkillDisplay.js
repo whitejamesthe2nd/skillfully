@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core";
+import { NavLink } from 'react-router-dom';
 
 const SkillDisplay = (props) =>{
     const useStyles = makeStyles({
@@ -23,7 +24,7 @@ const SkillDisplay = (props) =>{
     const classes = useStyles()
         return (
             <div className={classes.content}>
-                <span>{`${skill}`}:</span>
+                <NavLink to='/skills/1' activeclass='active'><span>{`${skill}`}:</span></NavLink>
                 <span> {`${time}`}</span>
             </div>
         );

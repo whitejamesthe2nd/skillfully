@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import person from "./person.jpg";
+import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core";
+import person from "./person.jpg";
 import SkillDisplay from "./SkillDisplay";
 
 const Profile = () => {
@@ -39,7 +40,7 @@ const Profile = () => {
 
     })
     const [theme,setTheme] = useState();
-    console.log(theme)
+    const auth = useSelector((state)=> state.auth)
     const handleChange =(e) =>{
         setTheme(e.target.value);
     }
@@ -63,7 +64,7 @@ const Profile = () => {
                 <SkillDisplay skill={skill} time={time} />
             </div>
             <div className={classes.theme}>
-                <h3>usename</h3>
+                <h3>{auth.username}</h3>
                 <form>
                     <select onChange={handleChange}>
                         <option value='day'>Day</option>

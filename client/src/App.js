@@ -5,18 +5,11 @@ import Pomodoro from "./components/Pomodoro/Pomodoro";
 import  Navbar  from "./components/navbar/Navbar";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
+import SkillPage from "./components/SkillPage/SkillPage";
 function App() {
 
   return (
     <BrowserRouter>
-
-        {/* <nav>
-            <ul>
-                <li><NavLink to="/pomodoro" activeclass="active">Pomodoro</NavLink></li>
-                <li><NavLink to="/login" activeclass="active">Login</NavLink></li>
-                <li><NavLink to="/" activeclass="active">Home</NavLink></li>
-            </ul>
-        </nav> */}
         <Navbar />
         <Switch>
             <Route path="/pomodoro">
@@ -29,9 +22,16 @@ function App() {
             <Route path="/profile">
                 <Profile />
             </Route>
+            {/* <Route key={id} path={`event-details/${event.id}`}>
+                    <EventDetails />
+                </Route> */}
+                <Route path={`/skills/1`}>
+                    <SkillPage />
+                </Route>
             <Route path="/">
                 <Home />
             </Route>
+
         </Switch>
     </BrowserRouter>
   );
