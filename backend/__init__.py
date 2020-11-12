@@ -14,6 +14,7 @@ from flask_jwt_extended import (
 
 from backend.models import db, User, Skill
 from backend.api.user_routes import user_routes
+from backend.api.skill_routes import skill_routes
 from backend.api.session_routes import session_routes
 
 from backend.config import Config
@@ -22,6 +23,7 @@ app = Flask(__name__)
 
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
+app.register_blueprint(skill_routes, url_prefix='/api/skills')
 app.register_blueprint(session_routes, url_prefix='/api/session')
 app.config['JWT_TOKEN_LOCATION'] = ['cookies']
 app.config['JWT_COOKIE_CSRF_PROTECT'] = False

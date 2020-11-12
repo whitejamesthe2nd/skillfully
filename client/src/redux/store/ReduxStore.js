@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import thunk from 'redux-thunk';
 import {auth} from '../reducers/Auth'
+import {skills} from '../reducers/Skills'
 // import { eventsSlice } from '../reducers/FeaturedEvents'
 // import { quoteSlice } from '../reducers/QuoteReducer'
 // import {event} from '../reducers/Events'
@@ -17,7 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 
-const ReducerMerger = combineReducers({auth})
+const ReducerMerger = combineReducers({auth,skills})
 
 
 const configureStore = (initialState) => {

@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core';
 
 
 function Skillpage(props) {
+    console.log(props)
     const useStyles = makeStyles({
         container:{
             display: 'grid',
@@ -16,6 +17,17 @@ function Skillpage(props) {
     })
 
     const classes = useStyles();
+    const {
+        id,
+        name,
+        skill_tip1,
+        skill_tip2,
+        skill_tip3,
+        skill_resource1,
+        skill_resource2,
+        skill_resource3,
+    } = props.props
+    console.log(skill_tip1)
 
     return (
         <>
@@ -24,17 +36,17 @@ function Skillpage(props) {
 
             <h1 className={classes.semiContainer}>Words of wisdom</h1>
                 <ul >
-                    <li >Tip 1</li>
-                    <li>Tip 2</li>
-                    <li>Tip 3</li>
+                    <li>{`${skill_tip1}`}</li>
+                    <li>{`${skill_tip2}`}</li>
+                    <li>{`${skill_tip3}`}</li>
                 </ul>
             </div>
         <div>
             <h1>Resources</h1>
             <ul>
-                <li>Resource 1</li>
-                <li>Resource 2</li>
-                <li>Resource 3</li>
+                <li>{`${skill_resource1}`}</li>
+                <li>{`${skill_resource2}`}</li>
+                <li>{`${skill_resource3}`}</li>
             </ul>
         </div>
         </div>
