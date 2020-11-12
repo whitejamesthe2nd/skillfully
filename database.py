@@ -10,7 +10,8 @@ with app.app_context():
   db.create_all()
 
   # Users
-  ian = User(username = 'Ian', email = 'ian@aa.io', hashed_password = generate_password_hash("password"))
+  ian = User(username = 'Ian', email = 'ian@aa.io', hashed_password = generate_password_hash("password"),
+  user_skills = 'japanese')
   javier = User(username = 'Javier', email = 'javier@aa.io')
   dean = User(username = 'Dean', email = 'dean@aa.io')
   angela = User(username = 'Angela', email = 'angela@aa.io')

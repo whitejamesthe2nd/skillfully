@@ -16,7 +16,7 @@ class User(db.Model):
       "id": self.id,
       "username": self.username,
       "email": self.email,
-      "user_skills": self.skills
+      "user_skills": self.user_skills
     }
 
 class Skill(db.Model):
