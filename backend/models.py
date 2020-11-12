@@ -23,5 +23,22 @@ class User(db.Model):
     __tablename__ = 'skills'
 
     id = db.Column(db.Integer, primary_key = True)
-    skill_name = db.Column(db.String(100))
-    skill_description = db.Column(db.String(5000))
+    name = db.Column(db.String(100))
+    skill_tip1 = db.Column(db.String(100))
+    skill_tip2 = db.Column(db.String(100))
+    skill_tip3 = db.Column(db.String(100))
+    skill_resource1 = db.Column(db.String(100))
+    skill_resource2 = db.Column(db.String(100))
+    skill_resource3 = db.Column(db.String(100))
+
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'name': self.name,
+      'skill_tip1': self.skill_tip1,
+      'skill_tip2': self.skill_tip2,
+      'skill_tip3': self.skill_tip3,
+      'skill_resource1': self.skill_resource1,
+      'skill_resource2': self.skill_resource2,
+      'skill_resource3': self.skill_resource3,
+    }
