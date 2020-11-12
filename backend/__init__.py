@@ -12,7 +12,7 @@ from flask_jwt_extended import (
 )
 
 
-from backend.models import db, User
+from backend.models import db, User, Skill
 from backend.api.user_routes import user_routes
 from backend.api.session_routes import session_routes
 

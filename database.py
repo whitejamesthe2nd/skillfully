@@ -3,7 +3,7 @@ load_dotenv()
 from werkzeug.security import generate_password_hash
 
 from backend import app, db
-from backend.models import User
+from backend.models import User, Skill
 
 with app.app_context():
   db.drop_all()
