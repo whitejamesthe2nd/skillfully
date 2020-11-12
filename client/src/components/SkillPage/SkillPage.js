@@ -33,7 +33,7 @@ function Skillpage(props) {
         <>
         <div className={classes.container}>
         <div >
-
+            <h1 >{`${name}`}</h1>
             <h1 className={classes.semiContainer}>Words of wisdom</h1>
                 <ul >
                     <li>{`${skill_tip1}`}</li>
