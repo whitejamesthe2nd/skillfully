@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from io import StringIO
+import json
 
 db = SQLAlchemy()
 
@@ -9,14 +11,14 @@ class User(db.Model):
   username = db.Column(db.String(40), nullable = False, unique = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(100))
-  user_skills = db.Column(db.String(5000))
+  user_skills = db.Column(db.Text)
 
   def to_dict(self):
     return {
       "id": self.id,
       "username": self.username,
       "email": self.email,
-      "user_skills": self.user_skills
+      "user_skill": json.load(StringIO(self.user_skills))
     }
 
 class Skill(db.Model):
@@ -42,3 +44,40 @@ class Skill(db.Model):
       'skill_resource2': self.skill_resource2,
       'skill_resource3': self.skill_resource3,
     }
+
+
+
+
+
+
+
+
+# class Match(db.Model):
+#     __tablename__ = 'matches'
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     gameId = db.Column(db.BIGINT, nullable=False, unique=True)
+#     platformId = db.Column(db.String(40), nullable=False)
+#     gameCreation = db.Column(db.BIGINT, nullable=False)
+#     gameDuration = db.Column(db.BIGINT, nullable=False)
+#     queueId = db.Column(db.Integer, nullable=False)
+#     seasonId = db.Column(db.Integer, nullable=False)
+#     gameMode = db.Column(db.String(40), nullable=False)
+#     teams = db.Column(db.Text, nullable=False)
+#     participants = db.Column(db.Text, nullable=False)
+#     participantIdentities = db.Column(db.Text, nullable=False)
+
+    # def to_dict(self):
+    #     return {
+    #         "gameId": self.gameId,
+    #         "platformId": self.platformId,
+    #         "gameCreation": self.gameCreation,
+    #         "gameDuration": self.gameDuration,
+    #         "queueId": self.queueId,
+    #         "seasonId": self.seasonId,
+    #         "gameMode": self.gameMode,
+    #         "teams": json.load(StringIO(self.teams)),
+    #         "participants": json.load(StringIO(self.participants)),
+    #         "participantIdentities": json.load(
+    #             StringIO(self.participantIdentities)),
+    #     }

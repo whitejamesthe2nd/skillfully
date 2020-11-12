@@ -1,17 +1,18 @@
 from dotenv import load_dotenv
 load_dotenv()
 from werkzeug.security import generate_password_hash
+from flask import jsonify
 
 from backend import app, db
 from backend.models import User, Skill
+import json
 
 with app.app_context():
   db.drop_all()
   db.create_all()
-
+  ianSkills = json.dumps({'japanese': '1000 hours'})
   # Users
-  ian = User(username = 'Ian', email = 'ian@aa.io', hashed_password = generate_password_hash("password"),
-  user_skills = 'japanese')
+  ian = User(username = 'Ian', email = 'ian@aa.io', hashed_password = generate_password_hash("password"), user_skills= ianSkills)
   javier = User(username = 'Javier', email = 'javier@aa.io')
   dean = User(username = 'Dean', email = 'dean@aa.io')
   angela = User(username = 'Angela', email = 'angela@aa.io')
