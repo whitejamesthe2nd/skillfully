@@ -44,12 +44,19 @@ const Profile = () => {
     const handleChange =(e) =>{
         setTheme(e.target.value);
     }
+    const classes = useStyles()
+    const skills = auth.user_skill;
 
+    let userSkills = [];
+    for(let key in skills) {
+    userSkills.push(<div className={classes.skill}>
+        <SkillDisplay skill={key} time={skills[key]} />
+    </div>)}
+    console.log(userSkills)
 
 
     const skill = 'Japanese';
     const time = '1000 hours';
-    const classes = useStyles()
     return (
         <div className={classes.container}>
             <div className={classes.start} >
@@ -60,9 +67,7 @@ const Profile = () => {
                 <span>Skill</span>
                 <span>Number of Hours</span>
             </div>
-            <div className={classes.skill}>
-                <SkillDisplay skill={skill} time={time} />
-            </div>
+            {userSkills}
             <div className={classes.theme}>
                 <h3>{auth.username}</h3>
                 <form>
