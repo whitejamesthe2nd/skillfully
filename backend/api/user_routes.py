@@ -42,3 +42,15 @@ def sign_up():
     set_access_cookies(resp, access_token)
     set_refresh_cookies(resp, refresh_token)
     return resp, 200
+
+@user_routes.route('/update', methods=['PUT'])
+def update_bookmark():
+    data = request.json
+    user = User.query.get(data['id'])
+    user.user_skills = data['skills']
+    db.session.commit()
+    return jsonify({
+        "id": user.id,
+        "name": name,
+        "user_skills": user.user_skills
+    })
