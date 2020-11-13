@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import galaxy from './galaxy1.jpg'
 import { fourtyTimer, twentyTimer, fifteenTimer } from "./timers";
@@ -58,7 +58,7 @@ const useStyles = makeStyles({
 })
 function Pomodoro(props) {
     const classes = useStyles()
-
+    const [timer, settimer] = useState()
     return (
         <>
             <div className={classes.container}>

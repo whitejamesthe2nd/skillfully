@@ -18,7 +18,6 @@ const Profile = () => {
         },
         skill: {
             gridColumnStart: '2',
-            gridRowStart: '2',
             // backgroundColor: 'yellow'
         },
         start: {
@@ -49,7 +48,8 @@ const Profile = () => {
 
     let userSkills = [];
     for(let key in skills) {
-    userSkills.push(<div className={classes.skill}>
+    userSkills.push(
+    <div className={classes.skill}>
         <SkillDisplay skill={key} time={skills[key]} />
     </div>)}
     console.log(userSkills)

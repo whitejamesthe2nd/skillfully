@@ -44,10 +44,9 @@ export const twentyTimer = () => {
         }
     }, 1000);
 }
-export const fifteenTimer = () => {
+export const fifteenTimer = (time) => {
     // Set the date we're counting down to
     let distance = 900;
-
     // Update the count down every 1 second
     let x = setInterval(function () {
 
