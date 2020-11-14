@@ -32,43 +32,55 @@ const Profile = () => {
             fontSize: '30px',
             paddingLeft: '34px'
         },
-        theme:{
-            gridColumnStart:'1',
-            paddingTop:'150px',
+        theme: {
+            gridColumnStart: '1',
+            paddingTop: '150px',
             paddingLeft: '115px'
         }
 
     })
-    const [theme,setTheme] = useState();
-    const [focus,setFocus] = useState('None');
-    const auth = useSelector((state)=> state.auth)
+    const [theme, setTheme] = useState();
+    const [focus, setFocus] = useState('None');
+    const auth = useSelector((state) => state.auth)
+    const skillList = useSelector((state) => state.skills.skills)
     const dispatch = useDispatch();
 
-    const handleChange =(e) =>{
+    const handleChange = (e) => {
         setTheme(e.target.value);
     }
 
-    const handleChangeFocus =(e) =>{
+    const handleChangeFocus = (e) => {
         setFocus(e.target.value);
         console.log(e.target.value)
-        dispatch(updateFocusThunk(e.target.value,auth))
+        dispatch(updateFocusThunk(e.target.value, auth))
 
     }
     const classes = useStyles()
     const skills = auth.user_skill;
-    let  options = [<option value={'None'}>None</option>];
-
-    if(skills){
-        let skillArray = Object.keys(skills);
-        skillArray.map((ele,i) => options.push(<option key={i} value={ele}>{`${ele}`}</option>))
+    let options = [<option value={'None'}>None</option>];
+    let skillArray = []
+    if (skills) {
+        skillArray = Object.keys(skills);
+        skillArray.map((ele, i) => options.push(<option key={i} value={ele}>{`${ele}`}</option>))
     }
 
     let userSkills = [];
-    for(let key in skills) {
-    userSkills.push(
-    <div className={classes.skill}>
-        <SkillDisplay skill={key} time={skills[key]} />
-    </div>)}
+    for (let key in skills) {
+        let id = 'none'
+        for (let i = 0; i < skillList.length; i++) {
+            if(skillList[i]['name'] == key){
+                id = skillList[i]['id'];
+            }
+            else{
+                id = 'none'
+            }
+            console.log(id)
+        }
+        userSkills.push(
+            <div className={classes.skill}>
+                <SkillDisplay skill={key} time={skills[key]} id={id} />
+            </div>)
+    }
 
     return (
         <div className={classes.container}>

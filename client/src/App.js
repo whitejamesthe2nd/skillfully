@@ -43,6 +43,9 @@ function App() {
                     )
                 }
                 ): null}
+            <Route path={`/skills/none`}>
+                <h1>Hi I work Here</h1>
+            </Route>
             <Route path="/">
                 <Home />
             </Route>

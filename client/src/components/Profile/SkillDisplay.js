@@ -15,7 +15,8 @@ const SkillDisplay = (props) =>{
 
     const {
         skill,
-        time
+        time,
+        id
 
     } = props
 
@@ -24,7 +25,7 @@ const SkillDisplay = (props) =>{
     const classes = useStyles()
         return (
             <div className={classes.content}>
-                <NavLink to='/skills/1' activeclass='active'><span>{`${skill}`}:</span></NavLink>
+                <NavLink to={`/skills/${id}`} activeclass='active'><span>{`${skill}`}:</span></NavLink>
                 <span> {`${time} hrs`}</span>
             </div>
         );
