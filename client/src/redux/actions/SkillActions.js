@@ -39,6 +39,26 @@ export const loadSkillsThunk = () => {
         return res;
     };
 };
+export const createSkillThunk = (skill) => {
+
+    return async dispatch => {
+        const res = await fetch(`/api/skills/create`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+            },
+            body: JSON.stringify(skill),
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+            dispatch(loadSkills(data))
+        }
+        return res;
+    };
+};
 //logout
 // export const logout = () => async dispatch => {
 //     const res = await fetch('/api/session/token/remove', {
