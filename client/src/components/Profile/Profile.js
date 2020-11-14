@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core";
 import person from "./person.jpg";
 import SkillDisplay from "./SkillDisplay";
+import { updateFocusThunk } from "../../redux/actions/AuthActions";
 
 const Profile = () => {
     const useStyles = makeStyles({
@@ -41,11 +42,16 @@ const Profile = () => {
     const [theme,setTheme] = useState();
     const [focus,setFocus] = useState('None');
     const auth = useSelector((state)=> state.auth)
+    const dispatch = useDispatch();
+
     const handleChange =(e) =>{
         setTheme(e.target.value);
     }
+
     const handleChangeFocus =(e) =>{
         setFocus(e.target.value);
+        console.log(e.target.value)
+        dispatch(updateFocusThunk(e.target.value,auth))
 
     }
     const classes = useStyles()
@@ -77,6 +83,7 @@ const Profile = () => {
             {userSkills}
             <div className={classes.theme}>
                 <h3>{auth.username}</h3>
+                <h3>Focus: {auth.focus}</h3>
                 <form>
                     <label>Theme</label>
                     <select onChange={handleChange}>

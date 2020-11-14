@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 export const SET_USER = "SET_USER";
 export const REMOVE_USER = "REMOVE_USER";
 export const CREATE_USER = "CREATE_USER";
+export const UPDATE_FOCUS = "UPDATE_FOCUS";
 
 //!ACTIONS
 export const setUser = (user) => {
@@ -19,6 +20,12 @@ export const removeUser = () => {
 }
 
 export const createUser = (user) => {
+    return {
+        type: CREATE_USER,
+        user
+    }
+}
+export const updateFocus = (user) => {
     return {
         type: CREATE_USER,
         user
@@ -43,6 +50,27 @@ export const login = (email, password) => {
             const data = await res.json();
             console.log(data)
             dispatch(setUser(data))
+        }
+        return res;
+    };
+};
+
+export const updateFocusThunk = (focus,user) => {
+
+    return async dispatch => {
+        const res = await fetch(`/api/users/update/focus`, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+                // "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+            },
+            body: JSON.stringify({ focus, user }),
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+            dispatch(updateFocus(data))
         }
         return res;
     };

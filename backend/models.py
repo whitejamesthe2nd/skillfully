@@ -12,13 +12,15 @@ class User(db.Model):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(100))
   user_skills = db.Column(db.Text)
+  focus = db.Column(db.String(100))
 
   def to_dict(self):
     return {
       "id": self.id,
       "username": self.username,
       "email": self.email,
-      "user_skill": json.load(StringIO(self.user_skills))
+      "user_skill": json.load(StringIO(self.user_skills)),
+      "focus": self.focus
     }
 
 class Skill(db.Model):

@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from backend.models import User,db
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
@@ -43,7 +43,7 @@ def sign_up():
     set_refresh_cookies(resp, refresh_token)
     return resp, 200
 
-@user_routes.route('/update', methods=['PUT'])
+@user_routes.route('/update/skills', methods=['PUT'])
 def update_bookmark():
     data = request.json
     user = User.query.get(data['id'])
@@ -53,4 +53,19 @@ def update_bookmark():
         "id": user.id,
         "name": name,
         "user_skills": user.user_skills
+    })
+
+@user_routes.route('/update/focus', methods=['PUT'])
+def update_focus():
+    data = request.json
+    print('-----------------------------------------------')
+    print(data)
+    user = User.query.get(data['user']['id'])
+    user.focus = data['focus']
+    db.session.commit()
+    return jsonify({
+        "id": user.id,
+        "name": user.username,
+        "user_skills": user.user_skills,
+        "focus": user.focus
     })
