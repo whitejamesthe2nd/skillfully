@@ -75,6 +75,26 @@ export const updateFocusThunk = (focus,user) => {
         return res;
     };
 };
+export const updateUserSkillThunk = (user) => {
+
+    return async dispatch => {
+        const res = await fetch(`/api/users/update/skills`, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+                // "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+            },
+            body: JSON.stringify({ user }),
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+            dispatch(updateFocus(data))
+        }
+        return res;
+    };
+};
 //logout
 export const logout = () => async dispatch => {
     const res = await fetch('/api/session/token/remove', {

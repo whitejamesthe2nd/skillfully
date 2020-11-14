@@ -1,6 +1,16 @@
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { makeStyles } from "@material-ui/core";
+// import person from "./person.jpg";
+// import SkillDisplay from "./SkillDisplay";
+import { updateUserSkillThunk } from "../../redux/actions/AuthActions";
+
+
+
+const user = useSelector((state)=> state.auth)
 export const fourtyTimer = () => {
     // Set the date we're counting down to
-    let distance = 2700;
+    let distance = 15;
 
     // Update the count down every 1 second
     let x = setInterval(function () {

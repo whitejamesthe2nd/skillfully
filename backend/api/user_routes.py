@@ -44,22 +44,23 @@ def sign_up():
     return resp, 200
 
 @user_routes.route('/update/skills', methods=['PUT'])
-def update_bookmark():
+def update_skills():
     data = request.json
-    user = User.query.get(data['id'])
-    user.user_skills = data['skills']
+    print('-----------------------------------------------')
+    print(data)
+    user = User.query.get(data['user']['id'])
+    user.user_skills = json.dumps(data['user']['user_skill'])
     db.session.commit()
     return jsonify({
         "id": user.id,
-        "name": name,
-        "user_skills": user.user_skills
+        "name": user.username,
+        "user_skills": user.user_skills,
+        'focus': user.focus
     })
 
 @user_routes.route('/update/focus', methods=['PUT'])
 def update_focus():
     data = request.json
-    print('-----------------------------------------------')
-    print(data)
     user = User.query.get(data['user']['id'])
     user.focus = data['focus']
     db.session.commit()

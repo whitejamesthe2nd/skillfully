@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
+import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import galaxy from './galaxy1.jpg'
-import { fourtyTimer, twentyTimer, fifteenTimer } from "./timers";
+// import { fourtyTimer, twentyTimer, fifteenTimer } from "./timers";
+import { updateUserSkillThunk } from "../../redux/actions/AuthActions";
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
     container: {
@@ -57,6 +60,82 @@ const useStyles = makeStyles({
 
 })
 function Pomodoro(props) {
+    const user = useSelector((state)=> state.auth )
+    const dispatch = useDispatch();
+
+// Timers
+ const fourtyTimer = () => {
+    // Set the date we're counting down to
+    let distance = 5;
+
+    // Update the count down every 1 second
+    let x = setInterval(function () {
+
+        distance = distance - 1;
+
+        let minutes = Math.floor((distance / 60));
+        let seconds = Math.floor((distance % 60));
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "Estatic Experience";
+            user['user_skill'][user.focus] += 1;
+            console.log(user['user_skill'])
+            dispatch(updateUserSkillThunk(user))
+            window.alert('One more step to mastery down');
+        }
+    }, 1000);
+}
+ const twentyTimer = () => {
+    // Set the date we're counting down to
+    let distance = 1500;
+
+    // Update the count down every 1 second
+    let x = setInterval(function () {
+
+        distance = distance - 1;
+
+        let minutes = Math.floor((distance / 60));
+        let seconds = Math.floor((distance % 60));
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "Sweet Victory";
+            window.alert('One more step to mastery down');
+        }
+    }, 1000);
+}
+ const fifteenTimer = (time) => {
+    // Set the date we're counting down to
+    let distance = 900;
+    // Update the count down every 1 second
+    let x = setInterval(function () {
+
+        distance = distance - 1;
+
+        let minutes = Math.floor((distance / 60));
+        let seconds = Math.floor((distance % 60));
+
+        // Display the result in the element with id="timer"
+        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s " ;
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "Feel refreshed?";
+            window.alert('The rest ends and the struggle begins');
+        }
+    }, 1000);
+}
+
     const classes = useStyles()
     const [timer, settimer] = useState()
     return (
@@ -64,7 +143,7 @@ function Pomodoro(props) {
             <div className={classes.container}>
                 <div id='timer' className={classes.timer}>Timer</div>
                 <div className={classes.firstButtonDiv}>
-                    <button className={classes.fourtyButton} onClick={fourtyTimer}>45 Minutes</button>
+                    <button className={classes.fourtyButton} onClick={fourtyTimer}>hour demo</button>
                 </div>
                 <div className={classes.secondButtonDiv}>
                     <button className={classes.twentyButton} onClick={twentyTimer}> 25 minutes</button>
