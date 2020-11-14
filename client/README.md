@@ -11,8 +11,8 @@ This app will be automatically built when you deploy to heroku, please see the `
 
 Create skill
 signup
-conditional header
+conditional header # almost
 styles
-update user skills with pomo
+update user skills with pomo # done
 add user skills
 delete skill?

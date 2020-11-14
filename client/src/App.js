@@ -8,7 +8,7 @@ import Profile from "./components/Profile/Profile";
 import SkillPage from "./components/SkillPage/SkillPage";
 import { loadSkillsThunk } from "./redux/actions/SkillActions";
 import {useDispatch, useSelector} from "react-redux";
-
+import SkillForm, {skillForm} from './components/SkillForm/SkillForm'
 
 function App() {
     const dispatch = useDispatch();
@@ -37,14 +37,14 @@ function App() {
             </Route>
             {skills ? skills.map((skill, id) => {
                 return(
-                    <Route key={id} path={`/skills/${skill.id}`}>
+                    <Route key={id} path={`/skills/${skill.name}`}>
                         <SkillPage props={skill} />
                     </Route>
                     )
                 }
                 ): null}
             <Route path={`/skills/none`}>
-                <h1>Hi I work Here</h1>
+                <SkillForm />
             </Route>
             <Route path="/">
                 <Home />
