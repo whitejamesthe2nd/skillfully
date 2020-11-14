@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions/AuthActions";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/actions/AuthActions";
 import { makeStyles } from "@material-ui/core";
-import { useHistory } from 'react-router-dom';
+import { signup } from "../../redux/actions/AuthActions";
 
 
-
-function Login(props) {
-    const [email, setEmail] = useState('ian@aa.io');
-    const [password, setPassword] = useState('password');
+function SignUp(props) {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [userName, setUserName] = useState();
     console.log(password)
     const dispatch = useDispatch()
-    const history = useHistory();
-    const auth = useSelector((state)=> state.auth.id)
+
     const useStyles = makeStyles({
         loginDiv: {
             display:'flex',
@@ -50,21 +49,13 @@ function Login(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(email, password))
-    }
-    const handleSubmitDemo = (e) => {
-        e.preventDefault();
-        dispatch(login('ian@aa.io', 'password'))
+        dispatch(signup(userName, email, password ))
     }
     const handleChangePassword = (e) => {
         setPassword(e.target.value)
     }
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)
-    }
-    if(auth){
-
-        history.push('/profile')
     }
     return (
         <>
@@ -74,18 +65,19 @@ function Login(props) {
                 <h3>Welcome To Skillfully Please Login</h3>
                 </div>
                     <div >
-                        <input type="email" placeholder={'email'} className={classes.email} onChange={handleChangeEmail}></input>
+                        <input type='text' className={classes.email} placeholder={'User name'} onChange={(e)=> setUserName(e.target.value)}></input>
+                    </div>
+                    <div >
+                        <input type="email" placeholder={'Email'} className={classes.email} onChange={handleChangeEmail}></input>
                     </div>
                     <div >
                         <input type='password' placeholder={'password'} className={classes.password} onChange={handleChangePassword}></input>
                     </div>
-                    <button type='submit' className={classes.submit}>Submit</button>
-                    <button  className={classes.submit} onClick={()=> history.push('/signup')}>SignUp</button>
-                    <button  className={classes.submit} onClick={handleSubmitDemo}>Demo</button>
+                    <button type='submit' className={classes.submit}>Sign Up</button>
                 </form>
             </div>
 
         </>
     );
 }
-export default Login;
+export default SignUp;

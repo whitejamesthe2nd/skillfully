@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core";
 import person from "./person.jpg";
 import SkillDisplay from "./SkillDisplay";
-import { updateFocusThunk } from "../../redux/actions/AuthActions";
+import { updateFocusThunk, updateUserSkillThunk } from "../../redux/actions/AuthActions";
+import { useHistory } from 'react-router-dom';
 
 const Profile = () => {
     const useStyles = makeStyles({
@@ -36,14 +37,29 @@ const Profile = () => {
             gridColumnStart: '1',
             paddingTop: '150px',
             paddingLeft: '115px'
+        },
+        content:{
+            gridColumnStart: '2'
+        },
+        form:{
+            display: 'flex',
+            justifyContent: 'center',
+        },
+        formElement:{
+            marginLeft: '113px',
         }
 
     })
     const [theme, setTheme] = useState();
     const [focus, setFocus] = useState('None');
+    const [skillName, setSkillName] = useState();
+    const [hours, setHours] = useState();
     const auth = useSelector((state) => state.auth)
     const skillList = useSelector((state) => state.skills.skills)
     const dispatch = useDispatch();
+    const classes = useStyles()
+    const skills = auth.user_skill;
+    const history= useHistory();
 
     const handleChange = (e) => {
         setTheme(e.target.value);
@@ -55,8 +71,6 @@ const Profile = () => {
         dispatch(updateFocusThunk(e.target.value, auth))
 
     }
-    const classes = useStyles()
-    const skills = auth.user_skill;
     let options = [<option value={'None'}>None</option>];
     let skillArray = []
     if (skills) {
@@ -81,6 +95,17 @@ const Profile = () => {
                 <SkillDisplay skill={key} time={skills[key]} id={id} />
             </div>)
     }
+    const handleClick = () =>{
+        auth.user_skill[skillName] = hours;
+        dispatch(updateUserSkillThunk(auth))
+
+    }
+
+    const auth2 = useSelector((state)=> state.auth.id)
+
+    if(!auth2){
+        history.push('/login')
+    }
 
     return (
         <div className={classes.container}>
@@ -92,7 +117,14 @@ const Profile = () => {
                 <span>Skill</span>
                 <span>Number of Hours</span>
             </div>
+            <div className={classes.content}>
             {userSkills}
+                <form className={classes.form}>
+                    <input  type='text' placeholder='Skill Name' onChange={(e)=> setSkillName(e.target.value)}></input>
+                    <input className={ classes.formElement} type='number' placeholder='Hours Completed' onChange={(e)=> setHours(e.target.value)}></input>
+                    <button onClick={handleClick}>+</button>
+                </form>
+            </div>
             <div className={classes.theme}>
                 <h3>{auth.username}</h3>
                 <h3>Focus: {auth.focus}</h3>

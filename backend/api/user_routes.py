@@ -30,7 +30,7 @@ def sign_up():
 
     hashed_pass = generate_password_hash(password, method='sha256')
 
-    new_user = User(username=username, email=email, hashed_password=hashed_pass)
+    new_user = User(username=username, email=email, hashed_password=hashed_pass, user_skills='')
     db.session.add(new_user)
     db.session.commit()
     # Create the tokens we will be sending back to the user
@@ -46,8 +46,6 @@ def sign_up():
 @user_routes.route('/update/skills', methods=['PUT'])
 def update_skills():
     data = request.json
-    print('-----------------------------------------------')
-    print(data)
     user = User.query.get(data['user']['id'])
     user.user_skills = json.dumps(data['user']['user_skill'])
     db.session.commit()

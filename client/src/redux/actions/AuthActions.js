@@ -112,7 +112,7 @@ export const logout = () => async dispatch => {
 
 export const signup = (username, email, password) => async dispatch => {
     const csrfToken = Cookies.get("XSRF-TOKEN");
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json',

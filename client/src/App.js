@@ -9,6 +9,7 @@ import SkillPage from "./components/SkillPage/SkillPage";
 import { loadSkillsThunk } from "./redux/actions/SkillActions";
 import {useDispatch, useSelector} from "react-redux";
 import SkillForm, {skillForm} from './components/SkillForm/SkillForm'
+import SignUp from "./components/Auth/SignUp";
 
 function App() {
     const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function App() {
 
             <Route path="/login">
                 <Login />
+            </Route>
+            <Route path="/signup">
+                <SignUp />
             </Route>
             <Route path="/profile">
                 <Profile />

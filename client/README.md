@@ -14,5 +14,5 @@ signup
 conditional header # almost
 styles
 update user skills with pomo # done
-add user skills
-delete skill?
+add user skills #done
+delete skill? #done
