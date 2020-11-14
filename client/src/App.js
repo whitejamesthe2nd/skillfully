@@ -17,7 +17,6 @@ function App() {
 
 
     useEffect(()=>{
-
         dispatch(loadSkillsThunk());
     }, [auth])
 
@@ -37,7 +36,7 @@ function App() {
             </Route>
             {skills ? skills.map((skill, id) => {
                 return(
-                    <Route key={id} path={`/skills/${skill.name}`}>
+                    <Route key={id} path={`/skills/${skill.id}`}>
                         <SkillPage props={skill} />
                     </Route>
                     )

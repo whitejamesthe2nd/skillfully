@@ -35,3 +35,11 @@ def create_skill():
   db.session.add(skill)
   db.session.commit()
   return jsonify(data)
+
+@skill_routes.route('/delete', methods=['DELETE'])
+def delete_bookmark():
+    data = request.json
+    skill = Skill.query.get(data['id'])
+    db.session.delete(skill)
+    db.session.commit()
+    return "Deleted."

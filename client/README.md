@@ -9,7 +9,7 @@ This app will be automatically built when you deploy to heroku, please see the `
 
 
 
-Create skill
+Create skill # straight done
 signup
 conditional header # almost
 styles

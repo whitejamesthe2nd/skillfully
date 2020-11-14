@@ -59,6 +59,26 @@ export const createSkillThunk = (skill) => {
         return res;
     };
 };
+export const deleteSkillThunk = (id) => {
+
+    return async dispatch => {
+        const res = await fetch(`/api/skills/delete`,{
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                // "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+            },
+            body: JSON.stringify({id}),
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+            dispatch(loadSkills(data))
+        }
+        return res;
+    };
+};
 //logout
 // export const logout = () => async dispatch => {
 //     const res = await fetch('/api/session/token/remove', {

@@ -1,6 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState,} from 'react';
+import { useDispatch } from "react-redux";
 import {makeStyles} from '@material-ui/core';
-
+import { deleteSkillThunk } from "../../redux/actions/SkillActions";
 
 
 function Skillpage(props) {
@@ -27,7 +28,13 @@ function Skillpage(props) {
         skill_resource2,
         skill_resource3,
     } = props.props
-    console.log(skill_tip1)
+
+    const dispatch = useDispatch()
+
+    const handleClick = ()=>{
+        dispatch(deleteSkillThunk(id))
+
+    }
 
     return (
         <>
@@ -49,6 +56,7 @@ function Skillpage(props) {
                 <li>{`${skill_resource3}`}</li>
             </ul>
         </div>
+        <button onClick={handleClick}>Delete This Skill</button>
         </div>
 
         </>
