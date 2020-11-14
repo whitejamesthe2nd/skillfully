@@ -39,12 +39,23 @@ const Profile = () => {
 
     })
     const [theme,setTheme] = useState();
+    const [focus,setFocus] = useState('None');
     const auth = useSelector((state)=> state.auth)
     const handleChange =(e) =>{
         setTheme(e.target.value);
     }
+    const handleChangeFocus =(e) =>{
+        setFocus(e.target.value);
+
+    }
     const classes = useStyles()
     const skills = auth.user_skill;
+    let  options = [<option value={'None'}>None</option>];
+
+    if(skills){
+        let skillArray = Object.keys(skills);
+        skillArray.map((ele,i) => options.push(<option key={i} value={ele}>{`${ele}`}</option>))
+    }
 
     let userSkills = [];
     for(let key in skills) {
@@ -52,11 +63,7 @@ const Profile = () => {
     <div className={classes.skill}>
         <SkillDisplay skill={key} time={skills[key]} />
     </div>)}
-    console.log(userSkills)
 
-
-    const skill = 'Japanese';
-    const time = '1000 hours';
     return (
         <div className={classes.container}>
             <div className={classes.start} >
@@ -71,10 +78,16 @@ const Profile = () => {
             <div className={classes.theme}>
                 <h3>{auth.username}</h3>
                 <form>
+                    <label>Theme</label>
                     <select onChange={handleChange}>
                         <option value='day'>Day</option>
                         <option value='night'>Night</option>
                         <option value='galaxy'> Galaxy</option>
+                    </select>
+                    <br></br>
+                    <label>     Focus</label>
+                    <select onChange={handleChangeFocus}>
+                        {options ? options : null}
                     </select>
                 </form>
             </div>

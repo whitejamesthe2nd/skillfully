@@ -15,9 +15,11 @@ function Navbar() {
             paddingTop: '5px'
         },
         link:{
-            color:"black",
-            fontSize:"17px",
-            textDecoration: 'none'
+            color:"white",
+            fontSize:"24px",
+            fontWeight: '600',
+            textDecoration: 'none',
+            paddingRight: '20px'
         },
         btn:{
             borderRadius:'10px',
@@ -36,6 +38,8 @@ function Navbar() {
             color:'white',
             fontSize:'26px',
             paddingLeft:'30px'
+        },
+        logoBox:{
         }
 
     })
@@ -44,12 +48,14 @@ function Navbar() {
   return (
         <nav>
             <div className={classes.header}>
-                <h3 className={classes.logo}>Skillfully</h3>
+                <div className={classes.logoBox}>
+                    <h3 className={classes.logo}>Skillfully</h3>
+                </div>
                 <div className={classes.btnBox}>
-                    <button className={classes.btn}><NavLink to="/login" className={classes.link} activeclass="active">Login </NavLink></button>
-                    <button className={classes.btn}><NavLink to="/pomodoro" className={classes.link} activeclass="active">Pomodoro </NavLink></button>
-                    <button className={classes.btn}><NavLink to="/profile" className={classes.link} activeclass="active">Profile </NavLink></button>
-                    <button className={classes.btn}><NavLink to="/" className={classes.link} activeclass="active">Home </NavLink></button>
+                    <NavLink to="/login" className={classes.link} activeclass="active">Login </NavLink>
+                    <NavLink to="/pomodoro" className={classes.link} activeclass="active">Pomodoro </NavLink>
+                    <NavLink to="/profile" className={classes.link} activeclass="active">Profile </NavLink>
+                    <NavLink to="/" className={classes.link} activeclass="active">Home</NavLink>
                 </div>
             </div>
         </nav>
