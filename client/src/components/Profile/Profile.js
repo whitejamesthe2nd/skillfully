@@ -35,6 +35,7 @@ const Profile = () => {
         },
         theme: {
             gridColumnStart: '1',
+            gridRowStart: '2',
             paddingTop: '150px',
             paddingLeft: '115px'
         },

@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function Login(props) {
-    const [email, setEmail] = useState('ian@aa.io');
+    const [email, setEmail] = useState('james@james.com');
     const [password, setPassword] = useState('password');
     console.log(password)
     const dispatch = useDispatch()
@@ -54,7 +54,7 @@ function Login(props) {
     }
     const handleSubmitDemo = (e) => {
         e.preventDefault();
-        dispatch(login('ian@aa.io', 'password'))
+        dispatch(login('james@james.com', 'password'))
     }
     const handleChangePassword = (e) => {
         setPassword(e.target.value)

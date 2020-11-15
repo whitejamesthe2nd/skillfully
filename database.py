@@ -10,9 +10,13 @@ import json
 with app.app_context():
   db.drop_all()
   db.create_all()
-  ianSkills = json.dumps({'Japanese': 1000, 'Javascript': 1000})
+  ianSkills = json.dumps({'Japanese': 1000, 'Javascript': 500, 'guitar': 30,
+  'Python': 100, 'pool': 100, 'react': 100, 'redux': 100, 'learning': 200,
+
+  })
   # Users
-  ian = User(username = 'Ian', email = 'ian@aa.io', hashed_password = generate_password_hash("password"), user_skills= ianSkills, focus= 'Javascript')
+  ian = User(username = 'James', email = 'james@james.com', hashed_password = generate_password_hash("password"), user_skills= ianSkills, focus= 'Javascript',
+  theme = 'Day')
   javier = User(username = 'Javier', email = 'javier@aa.io')
   dean = User(username = 'Dean', email = 'dean@aa.io')
   angela = User(username = 'Angela', email = 'angela@aa.io')

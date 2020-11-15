@@ -13,6 +13,7 @@ class User(db.Model):
   hashed_password = db.Column(db.String(100))
   user_skills = db.Column(db.Text)
   focus = db.Column(db.String(100))
+  theme = db.Column(db.String(100))
 
   def to_dict(self):
     return {
@@ -20,7 +21,8 @@ class User(db.Model):
       "username": self.username,
       "email": self.email,
       "user_skill": json.load(StringIO(self.user_skills)),
-      "focus": self.focus
+      "focus": self.focus,
+      "theme": self.theme
     }
 
 class Skill(db.Model):
