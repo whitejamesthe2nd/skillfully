@@ -25,21 +25,18 @@ function Pomodoro(props) {
         firstButtonDiv: {
             gridRowStart: '3',
             gridColumnStart: '2',
-            // backgroundColor: 'yellow',
             display: 'flex',
             justifyContent: 'center'
         },
         secondButtonDiv: {
             gridRowStart: '3',
             gridColumnStart: '4',
-            // backgroundColor: 'blue',
             display: 'flex',
             justifyContent: 'center'
         },
         thirdButtonDiv: {
             gridRowStart: '3',
             gridColumnStart: '6',
-            // backgroundColor: 'red',
             display: 'flex',
             justifyContent: 'center'
         },
@@ -61,7 +58,7 @@ function Pomodoro(props) {
             fontSize: '42px',
             textAlign: 'Center',
             backgroundColor: 'black',
-            height: '75px',
+            height: '100px',
             paddingTop: '30px',
             borderRadius:'7px'
         }
@@ -144,7 +141,6 @@ function Pomodoro(props) {
 }
 
     const classes = useStyles()
-    const [timer, settimer] = useState()
     return (
         <>
             <div className={classes.container}>
