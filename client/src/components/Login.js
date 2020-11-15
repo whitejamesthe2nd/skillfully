@@ -42,6 +42,11 @@ function Login(props) {
             height: '25px',
             backgroundColor:'white',
             borderRadius:'5px'
+        },
+        centerMe:{
+            backgrouundColor: 'yellow',
+            display: 'flex',
+            justifyContent:'center'
         }
     })
 
@@ -73,15 +78,17 @@ function Login(props) {
                 <div>
                 <h3>Welcome To Skillfully Please Login</h3>
                 </div>
-                    <div >
+                    <div className={classes.centerMe}>
                         <input type="email" placeholder={'email'} className={classes.email} onChange={handleChangeEmail}></input>
                     </div>
-                    <div >
+                    <div className={classes.centerMe}>
                         <input type='password' placeholder={'password'} className={classes.password} onChange={handleChangePassword}></input>
                     </div>
-                    <button type='submit' className={classes.submit}>Submit</button>
-                    <button  className={classes.submit} onClick={()=> history.push('/signup')}>SignUp</button>
-                    <button  className={classes.submit} onClick={handleSubmitDemo}>Demo</button>
+                    <div className={classes.centerMe}>
+                        <button type='submit' className={classes.submit}>Submit</button>
+                        <button  className={classes.submit} onClick={()=> history.push('/signup')}>SignUp</button>
+                        <button  className={classes.submit} onClick={handleSubmitDemo}>Demo</button>
+                    </div>
                 </form>
             </div>
 
