@@ -3,15 +3,39 @@ import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core";
 import person from "./person.jpg";
 import SkillDisplay from "./SkillDisplay";
-import { updateFocusThunk, updateUserSkillThunk } from "../../redux/actions/AuthActions";
+import { updateFocusThunk, updateUserSkillThunk, updateThemeThunk } from "../../redux/actions/AuthActions";
 import { useHistory } from 'react-router-dom';
+import galaxy from '../Pomodoro/galaxy1.jpg'
+
 
 const Profile = () => {
+
+
+    const [focus, setFocus] = useState('None');
+    const [skillName, setSkillName] = useState();
+    const [hours, setHours] = useState();
+    const auth = useSelector((state) => state.auth)
+    const skillList = useSelector((state) => state.skills.skills)
+    const dispatch = useDispatch();
+    const skills = auth.user_skill;
+    const theme = auth.theme;
+    const history= useHistory();
+    let pageTheme = '';
+    let color = '';
+    if(theme === 'galaxy'){
+        pageTheme = galaxy;
+        color = 'white';
+    }
+    console.log(pageTheme)
+
     const useStyles = makeStyles({
         container: {
             display: 'grid',
-            gridTemplateRows: '50px 1fr 1fr',
-            gridTemplateColumns: '1fr 2fr 1fr'
+            gridTemplateRows: '50px 1fr 500px',
+            gridTemplateColumns: '1fr 2fr 1fr',
+            backgroundImage: `url(${pageTheme})`,
+            color: `${color}`,
+            backgroundSize: '100% 100%'
         },
         image: {
             height: '200px',
@@ -51,19 +75,10 @@ const Profile = () => {
         }
 
     })
-    const [theme, setTheme] = useState();
-    const [focus, setFocus] = useState('None');
-    const [skillName, setSkillName] = useState();
-    const [hours, setHours] = useState();
-    const auth = useSelector((state) => state.auth)
-    const skillList = useSelector((state) => state.skills.skills)
-    const dispatch = useDispatch();
     const classes = useStyles()
-    const skills = auth.user_skill;
-    const history= useHistory();
 
     const handleChange = (e) => {
-        setTheme(e.target.value);
+        dispatch(updateThemeThunk(e.target.value, auth));
     }
 
     const handleChangeFocus = (e) => {
@@ -93,11 +108,12 @@ const Profile = () => {
         }
         userSkills.push(
             <div className={classes.skill}>
-                <SkillDisplay skill={key} time={skills[key]} id={id} />
+                <SkillDisplay skill={key} time={skills[key]} id={id} theme={theme} />
             </div>)
     }
-    const handleClick = () =>{
-        auth.user_skill[skillName] = hours;
+    const handleClick = (e) =>{
+        e.preventDefault();
+        auth.user_skill[skillName] = parseInt(hours);
         dispatch(updateUserSkillThunk(auth))
 
     }

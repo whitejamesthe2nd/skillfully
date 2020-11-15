@@ -3,6 +3,7 @@ from backend.models import User,db
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from datetime import datetime, timedelta
+from io import StringIO
 import os
 import json
 from flask_jwt_extended import (
@@ -49,12 +50,7 @@ def update_skills():
     user = User.query.get(data['user']['id'])
     user.user_skills = json.dumps(data['user']['user_skill'])
     db.session.commit()
-    return jsonify({
-        "id": user.id,
-        "name": user.username,
-        "user_skills": user.user_skills,
-        'focus': user.focus
-    })
+    return jsonify(user.to_dict())
 
 @user_routes.route('/update/focus', methods=['PUT'])
 def update_focus():
@@ -62,9 +58,13 @@ def update_focus():
     user = User.query.get(data['user']['id'])
     user.focus = data['focus']
     db.session.commit()
-    return jsonify({
-        "id": user.id,
-        "name": user.username,
-        "user_skills": user.user_skills,
-        "focus": user.focus
-    })
+    return jsonify(user.to_dict())
+@user_routes.route('/update/theme', methods=['PUT'])
+def update_theme():
+    data = request.json
+    print('---------------')
+    print(data)
+    user = User.query.get(data['user']['id'])
+    user.theme = data['theme']
+    db.session.commit()
+    return jsonify(user.to_dict())

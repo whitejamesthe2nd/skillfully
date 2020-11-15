@@ -70,7 +70,8 @@ export const updateFocusThunk = (focus,user) => {
         if (res.ok) {
             const data = await res.json();
             console.log(data)
-            dispatch(updateFocus(data))
+            dispatch(setUser(data))
+            // dispatch(updateFocus(data))
         }
         return res;
     };
@@ -90,7 +91,27 @@ export const updateUserSkillThunk = (user) => {
         if (res.ok) {
             const data = await res.json();
             console.log(data)
-            dispatch(updateFocus(data))
+            dispatch(setUser(data))
+        }
+        return res;
+    };
+};
+export const updateThemeThunk = (theme,user) => {
+
+    return async dispatch => {
+        const res = await fetch(`/api/users/update/theme`, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+                // "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+            },
+            body: JSON.stringify({ theme,user }),
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+            // dispatch(update(data))
         }
         return res;
     };
