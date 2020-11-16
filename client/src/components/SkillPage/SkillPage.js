@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import { makeStyles } from '@material-ui/core';
 import { deleteSkillThunk } from "../../redux/actions/SkillActions";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 
 function Skillpage(props) {
@@ -31,10 +31,10 @@ function Skillpage(props) {
     } = props.props
 
     const dispatch = useDispatch()
-
+    const history = useHistory()
     const handleClick = () => {
-        dispatch(deleteSkillThunk(id))
-
+        dispatch(deleteSkillThunk(id));
+        history.push('/profile')
     }
 
     return (
