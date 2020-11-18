@@ -41,6 +41,13 @@ function Navbar() {
             paddingLeft:'30px'
         },
         btn:{
+            height: '25px',
+            color: 'white',
+            backgroundColor: 'black',
+            border: '0px',
+            fontSize: '24px',
+            fontWeight: '600',
+            textDecoration: 'none',
         }
 
     })
