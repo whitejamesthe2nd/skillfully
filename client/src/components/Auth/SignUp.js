@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actions/AuthActions";
 import { makeStyles } from "@material-ui/core";
 import { signup } from "../../redux/actions/AuthActions";
+import { Redirect } from 'react-router-dom'
 
 
 function SignUp(props) {
@@ -45,7 +46,7 @@ function SignUp(props) {
     })
 
     const classes = useStyles();
-
+    const currentId = useSelector(state => state.auth.id)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -57,6 +58,7 @@ function SignUp(props) {
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)
     }
+    if(currentId) return <Redirect to="/profile"/>;
     return (
         <>
             <div className={classes.loginDiv}>

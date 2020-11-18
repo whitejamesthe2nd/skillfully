@@ -10,11 +10,32 @@ import { loadSkillsThunk } from "./redux/actions/SkillActions";
 import {useDispatch, useSelector} from "react-redux";
 import SkillForm from './components/SkillForm/SkillForm'
 import SignUp from "./components/Auth/SignUp";
+import { setUser } from "./redux/actions/AuthActions";
+import Cookies from "js-cookie";
 
 function App() {
     const dispatch = useDispatch();
     const skills = useSelector((state) => state.skills.skills);
     const auth = useSelector((state) => state.auth);
+    useEffect(()=>{
+        if(auth.id){
+            const generateSession = async () => {
+                const res = await fetch("/api/session/token/refresh", {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'access': Cookies.get("access_token_cookie")
+                    },
+                })
+                if (res.ok) {
+                    const data = await res.json()
+                    dispatch(setUser(data))
+                }
+            }
+            generateSession()
+        }
+    }
+    ,[])
 
 
     useEffect(()=>{

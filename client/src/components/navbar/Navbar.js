@@ -1,7 +1,8 @@
 import React from 'react';
+import {useDispatch,useSelector} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core";
-
+import { logout } from "../../redux/actions/AuthActions";
 function Navbar() {
 
     const useStyles = makeStyles({
@@ -39,11 +40,12 @@ function Navbar() {
             fontSize:'26px',
             paddingLeft:'30px'
         },
-        logoBox:{
+        btn:{
         }
 
     })
-
+    const dispatch = useDispatch();
+    const auth = useSelector((state)=> state.auth)
     const classes = useStyles();
   return (
         <nav>
@@ -52,7 +54,8 @@ function Navbar() {
                     <h3 className={classes.logo}>Skillfully</h3>
                 </div>
                 <div className={classes.btnBox}>
-                    <NavLink to="/login" className={classes.link} activeclass="active">Login </NavLink>
+                    {auth.id ? <button className={classes.btn}onClick={()=> dispatch(logout())}>Logout </button>:
+                    <NavLink to="/login" className={classes.link} activeclass="active">Login </NavLink>}
                     <NavLink to="/pomodoro" className={classes.link} activeclass="active">Pomodoro </NavLink>
                     <NavLink to="/profile" className={classes.link} activeclass="active">Profile </NavLink>
                     <NavLink to="/" className={classes.link} activeclass="active">Home</NavLink>

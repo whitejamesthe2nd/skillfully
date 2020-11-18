@@ -132,7 +132,7 @@ export const logout = () => async dispatch => {
 
 
 export const signup = (username, email, password) => async dispatch => {
-    const csrfToken = Cookies.get("XSRF-TOKEN");
+    // const csrfToken = Cookies.get("XSRF-TOKEN");
     const response = await fetch('/api/users/', {
         method: 'post',
         headers: {
@@ -142,7 +142,8 @@ export const signup = (username, email, password) => async dispatch => {
         body: JSON.stringify({ username, email, password }),
     });
     if (response.ok) {
-        const { user } = await response.json();
+        const  user  = await response.json();
+        console.log(user);
         dispatch(createUser(user));
     }
 }

@@ -115,7 +115,6 @@ const Profile = () => {
         e.preventDefault();
         auth.user_skill[skillName] = parseInt(hours);
         dispatch(updateUserSkillThunk(auth))
-
     }
 
     const auth2 = useSelector((state)=> state.auth.id)

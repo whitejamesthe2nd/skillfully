@@ -30,16 +30,21 @@ def sign_up():
         return jsonify({'login': False}), 401
 
     hashed_pass = generate_password_hash(password, method='sha256')
+    default_skill = json.dumps({'learning':0})
 
-    new_user = User(username=username, email=email, hashed_password=hashed_pass, user_skills='')
+    new_user = User(username=username, email=email, hashed_password=hashed_pass, user_skills=default_skill, focus='', theme='')
     db.session.add(new_user)
     db.session.commit()
     # Create the tokens we will be sending back to the user
     access_token = create_access_token(identity=username)
     refresh_token = create_refresh_token(identity=username)
     user = new_user.to_dict()
+    print('---------------------------------------')
+    print(user)
     # Set the JWT cookies in the response
     resp = jsonify({'login': True, **user})
+    print('--------------------')
+    print(resp)
     set_access_cookies(resp, access_token)
     set_refresh_cookies(resp, refresh_token)
     return resp, 200
