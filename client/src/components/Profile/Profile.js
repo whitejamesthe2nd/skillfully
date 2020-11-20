@@ -18,16 +18,16 @@ const Profile = () => {
     const dispatch = useDispatch();
     const skills = auth.user_skill;
     const theme = auth.theme;
-    const history= useHistory();
+    const history = useHistory();
     let pageTheme = '';
     let color = '';
     let backgroundColor = '';
     let boxShadow = '';
-    if(theme === 'galaxy'){
+    if (theme === 'galaxy') {
         pageTheme = galaxy;
         color = 'white';
         backgroundColor = 'black'
-        boxShadow= 'purple 15px 15px 20px'
+        boxShadow = 'purple 15px 15px 20px'
     }
     console.log(pageTheme)
 
@@ -71,23 +71,25 @@ const Profile = () => {
             borderRadius: '10px',
             fontWeight: '600',
             fontSize: '18px',
-            boxShadow: 'purple 15px 15px 20px',
+            boxShadow: `${boxShadow}`,
             width: ' 300px'
         },
-        content:{
+        content: {
             gridColumnStart: '2',
             backgroundColor: `${backgroundColor}`,
             color: `${color}`,
             borderRadius: '10px',
             fontWeight: '600',
             fontSize: '18px',
-            boxShadow: `${boxShadow}`
+            boxShadow: `${boxShadow}`,
+            marginTop:'30px',
+            paddingBottom: '30px',
         },
-        form:{
+        form: {
             display: 'flex',
             justifyContent: 'center',
         },
-        formElement:{
+        formElement: {
             marginLeft: '113px',
         }
 
@@ -113,35 +115,35 @@ const Profile = () => {
 
     let userSkills = [];
 
-    if (skillList){
+    if (skillList) {
         for (let key in skills) {
             let id = 'none'
             for (let i = 0; i < skillList.length; i++) {
-                if(skillList[i]['name'] == key){
+                if (skillList[i]['name'] == key) {
                     id = skillList[i]['id'];
                 }
-                else{
+                else {
                     id = 'none'
                 }
                 console.log(id)
             }
             userSkills.push(
                 <div className={classes.skill}>
-                <SkillDisplay skill={key} time={skills[key]} id={id} theme={theme} />
-            </div>)
+                    <SkillDisplay skill={key} time={skills[key]} id={id} theme={theme} />
+                </div>)
+        }
     }
-}
 
 
-    const handleClick = (e) =>{
+    const handleClick = (e) => {
         e.preventDefault();
         auth.user_skill[skillName] = parseInt(hours);
         dispatch(updateUserSkillThunk(auth))
     }
 
-    const auth2 = useSelector((state)=> state.auth.id)
+    const auth2 = useSelector((state) => state.auth.id)
 
-    if(!auth2){
+    if (!auth2) {
         history.push('/login')
     }
 
@@ -149,17 +151,20 @@ const Profile = () => {
         <div className={classes.container}>
             <div className={classes.start} >
             </div>
-            <div className={classes.label}>
-                <span>Skill</span>
-                <span>Number of Hours</span>
-            </div>
+
             <div className={classes.content}>
-            {userSkills}
-                <form className={classes.form}>
-                    <input  type='text' placeholder='Skill Name' onChange={(e)=> setSkillName(e.target.value)}></input>
-                    <input className={ classes.formElement} type='number' placeholder='Hours Completed' onChange={(e)=> setHours(e.target.value)}></input>
-                    <button onClick={handleClick}>+</button>
-                </form>
+                <div className={classes.label}>
+                    <span>Skill</span>
+                    <span>Number of Hours</span>
+                </div>
+                <div className={classes.content}>
+                    {userSkills}
+                    <form className={classes.form}>
+                        <input type='text' placeholder='Skill Name' onChange={(e) => setSkillName(e.target.value)}></input>
+                        <input className={classes.formElement} type='number' placeholder='Hours Completed' onChange={(e) => setHours(e.target.value)}></input>
+                        <button onClick={handleClick}>+</button>
+                    </form>
+                </div>
             </div>
             <div className={classes.theme}>
                 <img src={person} className={classes.image}></img>

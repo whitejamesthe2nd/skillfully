@@ -71,7 +71,6 @@ export const updateFocusThunk = (focus,user) => {
             const data = await res.json();
             console.log(data)
             dispatch(setUser(data))
-            // dispatch(updateFocus(data))
         }
         return res;
     };
@@ -111,7 +110,7 @@ export const updateThemeThunk = (theme,user) => {
         if (res.ok) {
             const data = await res.json();
             console.log(data)
-            // dispatch(update(data))
+            dispatch(setUser(data))
         }
         return res;
     };
