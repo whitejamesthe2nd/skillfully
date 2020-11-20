@@ -61,7 +61,7 @@ function Navbar() {
                     <h3 className={classes.logo}>Skillfully</h3>
                 </div>
                 <div className={classes.btnBox}>
-                    {auth.id ? <button className={classes.btn}onClick={()=> dispatch(logout())}>Logout </button>:
+                    {auth.id ? <NavLink to='/' className={classes.link} onClick={()=> dispatch(logout())}>Logout </NavLink>:
                     <NavLink to="/login" className={classes.link} activeclass="active">Login </NavLink>}
                     <NavLink to="/pomodoro" className={classes.link} activeclass="active">Pomodoro </NavLink>
                     <NavLink to="/profile" className={classes.link} activeclass="active">Profile </NavLink>

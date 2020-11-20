@@ -9,10 +9,6 @@ This app will be automatically built when you deploy to heroku, please see the `
 
 
 
-Create skill # straight done
-signup
-conditional header # almost
-styles
-update user skills with pomo # done
-add user skills #done
-delete skill? #done
+Restyle profile page
+make sure delete button doesnt end the databases life.
+Make sure the create button doesnt kill the database
