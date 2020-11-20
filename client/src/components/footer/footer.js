@@ -1,15 +1,12 @@
 import React from 'react';
 import {useDispatch,useSelector} from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core";
-import { logout } from "../../redux/actions/AuthActions";
 function Footer() {
 
     const useStyles = makeStyles({
         header:{
-            display:'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gridTemplateRows: '1fr',
+            display:'flex',
+            justifyContent: 'center',
             backgroundColor: 'black',
             height:"50px",
             paddingBottom: '5px',
@@ -58,9 +55,6 @@ function Footer() {
   return (
         <nav>
             <div className={classes.header}>
-                <div className={classes.logoBox}>
-                    <h3 className={classes.logo}>Skillfully</h3>
-                </div>
                 <div className={classes.btnBox}>
                     <span className={classes.link}><a className={classes.link} href='https://github.com/whitejamesthe2nd'>Checkout my github</a></span>
                 </div>

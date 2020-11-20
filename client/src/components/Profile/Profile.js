@@ -173,6 +173,7 @@ const Profile = () => {
                 <form>
                     <label>Theme</label>
                     <select onChange={handleChange}>
+                        <option value='none'> None</option>
                         <option value='day'>Day</option>
                         <option value='night'>Night</option>
                         <option value='galaxy'> Galaxy</option>
