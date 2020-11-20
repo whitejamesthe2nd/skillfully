@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core";
 import SkillDisplay from '../Profile/SkillDisplay';
 import { createSkillThunk } from "../../redux/actions/SkillActions";
+import { useHistory } from 'react-router-dom';
 const SkillForm = () => {
     const useStyles = makeStyles({
         container:{
@@ -23,10 +24,9 @@ const SkillForm = () => {
     const [resourece1, setResource1] = useState();
     const [resourece2, setResource2] = useState();
     const [resourece3, setResource3] = useState();
-    const auth = useSelector((state) => state.auth)
-    const skillList = useSelector((state) => state.skills.skills)
     const dispatch = useDispatch();
     const classes = useStyles()
+    const history = useHistory();
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -39,8 +39,8 @@ const SkillForm = () => {
             skill_resource2: resourece2,
             skill_resource3: resourece3,
         }
-        console.log(skill)
         dispatch(createSkillThunk(skill));
+        history.push('/profile')
     }
 
     return (

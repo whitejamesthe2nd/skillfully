@@ -10,7 +10,6 @@ import galaxy from '../Pomodoro/galaxy1.jpg'
 
 const Profile = () => {
 
-
     const [focus, setFocus] = useState('None');
     const [skillName, setSkillName] = useState();
     const [hours, setHours] = useState();
@@ -22,9 +21,13 @@ const Profile = () => {
     const history= useHistory();
     let pageTheme = '';
     let color = '';
+    let backgroundColor = '';
+    let boxShadow = '';
     if(theme === 'galaxy'){
         pageTheme = galaxy;
         color = 'white';
+        backgroundColor = 'black'
+        boxShadow= 'purple 15px 15px 20px'
     }
     console.log(pageTheme)
 
@@ -60,11 +63,25 @@ const Profile = () => {
         theme: {
             gridColumnStart: '1',
             gridRowStart: '2',
-            paddingTop: '150px',
-            paddingLeft: '115px'
+            marginTop: '6px',
+            paddingLeft: '15px',
+            paddingBottom: '15px',
+            backgroundColor: `${backgroundColor}`,
+            color: `${color}`,
+            borderRadius: '10px',
+            fontWeight: '600',
+            fontSize: '18px',
+            boxShadow: 'purple 15px 15px 20px',
+            width: ' 300px'
         },
         content:{
-            gridColumnStart: '2'
+            gridColumnStart: '2',
+            backgroundColor: `${backgroundColor}`,
+            color: `${color}`,
+            borderRadius: '10px',
+            fontWeight: '600',
+            fontSize: '18px',
+            boxShadow: `${boxShadow}`
         },
         form:{
             display: 'flex',
@@ -95,22 +112,27 @@ const Profile = () => {
     }
 
     let userSkills = [];
-    for (let key in skills) {
-        let id = 'none'
-        for (let i = 0; i < skillList.length; i++) {
-            if(skillList[i]['name'] == key){
-                id = skillList[i]['id'];
+
+    if (skillList){
+        for (let key in skills) {
+            let id = 'none'
+            for (let i = 0; i < skillList.length; i++) {
+                if(skillList[i]['name'] == key){
+                    id = skillList[i]['id'];
+                }
+                else{
+                    id = 'none'
+                }
+                console.log(id)
             }
-            else{
-                id = 'none'
-            }
-            console.log(id)
-        }
-        userSkills.push(
-            <div className={classes.skill}>
+            userSkills.push(
+                <div className={classes.skill}>
                 <SkillDisplay skill={key} time={skills[key]} id={id} theme={theme} />
             </div>)
     }
+}
+
+
     const handleClick = (e) =>{
         e.preventDefault();
         auth.user_skill[skillName] = parseInt(hours);
@@ -126,8 +148,6 @@ const Profile = () => {
     return (
         <div className={classes.container}>
             <div className={classes.start} >
-
-                <img src={person} className={classes.image}></img>
             </div>
             <div className={classes.label}>
                 <span>Skill</span>
@@ -142,6 +162,7 @@ const Profile = () => {
                 </form>
             </div>
             <div className={classes.theme}>
+                <img src={person} className={classes.image}></img>
                 <h3>{auth.username}</h3>
                 <h3>Focus: {auth.focus}</h3>
                 <form>

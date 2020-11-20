@@ -54,7 +54,7 @@ export const createSkillThunk = (skill) => {
         if (res.ok) {
             const data = await res.json();
             console.log(data)
-            dispatch(loadSkills(data))
+            dispatch(loadSkillsThunk())
         }
         return res;
     };
@@ -74,7 +74,7 @@ export const deleteSkillThunk = (id) => {
         if (res.ok) {
             const data = await res.json();
             console.log(data)
-            dispatch(loadSkills(data))
+            dispatch(loadSkillsThunk())
         }
         return res;
     };
