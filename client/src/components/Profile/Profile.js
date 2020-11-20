@@ -5,7 +5,7 @@ import person from "./person.jpg";
 import SkillDisplay from "./SkillDisplay";
 import { updateFocusThunk, updateUserSkillThunk, updateThemeThunk } from "../../redux/actions/AuthActions";
 import { useHistory } from 'react-router-dom';
-import galaxy from '../Pomodoro/galaxy1.jpg'
+import galaxy from '../Pomodoro/galaxy1.jpg';
 
 
 const Profile = () => {
@@ -34,7 +34,7 @@ const Profile = () => {
     const useStyles = makeStyles({
         container: {
             display: 'grid',
-            gridTemplateRows: '50px 1fr 500px',
+            gridTemplateRows: '50px 1fr 350px',
             gridTemplateColumns: '1fr 2fr 1fr',
             backgroundImage: `url(${pageTheme})`,
             color: `${color}`,

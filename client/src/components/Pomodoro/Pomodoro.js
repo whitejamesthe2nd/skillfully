@@ -17,7 +17,7 @@ function Pomodoro(props) {
     const useStyles = makeStyles({
         container: {
             display: 'grid',
-            gridTemplateRows: '100px 200px 1fr 500px',
+            gridTemplateRows: '100px 200px 1fr 450px',
             gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
             backgroundImage: `url(${galaxy})`,
             backgroundSize: '100% 100%',

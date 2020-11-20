@@ -12,6 +12,7 @@ import SkillForm from './components/SkillForm/SkillForm'
 import SignUp from "./components/Auth/SignUp";
 import { setUser } from "./redux/actions/AuthActions";
 import Cookies from "js-cookie";
+import Footer from "./components/footer/footer";
 
 function App() {
     const dispatch = useDispatch();
@@ -75,6 +76,7 @@ function App() {
             </Route>
 
         </Switch>
+        <Footer />
     </BrowserRouter>
   );
 }

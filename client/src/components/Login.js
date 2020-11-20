@@ -13,14 +13,19 @@ function Login(props) {
     const dispatch = useDispatch()
     const history = useHistory();
     const auth = useSelector((state)=> state.auth.id)
+    const theme= useSelector((state)=> state.auth.theme)
     const useStyles = makeStyles({
+        container:{
+            dipslay: 'grid',
+            height:'820px',
+            // backgroundColor: 'yellow',
+
+        },
         loginDiv: {
             display:'flex',
-            justifyContent:'center'
+            justifyContent:'center',
         },
         form:{
-            dipslay: 'grid',
-            gridTemplateRows: '1fr 1fr 1fr',
             fontSize: '24px'
         },
         email:{
@@ -73,6 +78,8 @@ function Login(props) {
     }
     return (
         <>
+        <div className={classes.container}>
+
             <div className={classes.loginDiv}>
                 <form onSubmit={handleSubmit} className={classes.form}>
                 <div>
@@ -92,6 +99,7 @@ function Login(props) {
                 </form>
             </div>
 
+        </div>
         </>
     );
 }
