@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core";
-import SkillDisplay from '../Profile/SkillDisplay';
 import { createSkillThunk } from "../../redux/actions/SkillActions";
 import { useHistory } from 'react-router-dom';
+
+
 const SkillForm = () => {
     const useStyles = makeStyles({
-        container:{
+        container: {
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr'
-
+            gridTemplateColumns: '1fr 1fr 1fr',
+            gridTemplateRows: '1fr 520px',
         },
-        form:{
-            gridColumnStart:'2',
+        form: {
+            gridColumnStart: '2',
             display: 'flex',
             flexDirection: 'column'
         }
     })
+
+
     const [name, setName] = useState();
     const [tip1, setTip1] = useState();
     const [tip2, setTip2] = useState();
@@ -28,7 +31,7 @@ const SkillForm = () => {
     const classes = useStyles()
     const history = useHistory();
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         let skill = {
             name,
@@ -47,13 +50,13 @@ const SkillForm = () => {
         <div className={classes.container}>
             <form className={classes.form} onSubmit={handleSubmit}>
                 <h1> Create a Skill Guide</h1>
-                <input type='text' placeholder= 'Skill Name' onChange={(e)=> setName(e.target.value)}></input>
-                <textarea placeholder= 'Skill Tip 1' onChange={(e)=> setTip1(e.target.value)}></textarea>
-                <textarea placeholder= 'Skill Tip 2' onChange={(e)=> setTip2(e.target.value)}></textarea>
-                <textarea placeholder= 'Skill Tip 3' onChange={(e)=> setTip3(e.target.value)}></textarea>
-                <input type='text' placeholder= 'Skill Resource 1' onChange={(e)=> setResource1(e.target.value)}></input>
-                <input type='text' placeholder= 'Skill Resource 2' onChange={(e)=> setResource2(e.target.value)}></input>
-                <input type='text' placeholder= 'Skill Resource 3' onChange={(e)=> setResource3(e.target.value)}></input>
+                <input type='text' placeholder='Skill Name' onChange={(e) => setName(e.target.value)}></input>
+                <textarea placeholder='Skill Tip 1' onChange={(e) => setTip1(e.target.value)}></textarea>
+                <textarea placeholder='Skill Tip 2' onChange={(e) => setTip2(e.target.value)}></textarea>
+                <textarea placeholder='Skill Tip 3' onChange={(e) => setTip3(e.target.value)}></textarea>
+                <input type='text' placeholder='Skill Resource 1' onChange={(e) => setResource1(e.target.value)}></input>
+                <input type='text' placeholder='Skill Resource 2' onChange={(e) => setResource2(e.target.value)}></input>
+                <input type='text' placeholder='Skill Resource 3' onChange={(e) => setResource3(e.target.value)}></input>
                 <button type='submit'>Create</button>
             </form>
         </div>

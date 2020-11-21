@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/actions/AuthActions";
 import { makeStyles } from "@material-ui/core";
 import { signup } from "../../redux/actions/AuthActions";
 import { Redirect } from 'react-router-dom'

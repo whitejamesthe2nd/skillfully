@@ -10,7 +10,6 @@ import galaxy from '../Pomodoro/galaxy1.jpg';
 
 const Profile = () => {
 
-    const [focus, setFocus] = useState('None');
     const [skillName, setSkillName] = useState();
     const [hours, setHours] = useState();
     const auth = useSelector((state) => state.auth)
@@ -82,7 +81,7 @@ const Profile = () => {
             fontWeight: '600',
             fontSize: '18px',
             boxShadow: `${boxShadow}`,
-            marginTop:'30px',
+            marginTop: '30px',
             paddingBottom: '30px',
         },
         form: {
@@ -101,8 +100,6 @@ const Profile = () => {
     }
 
     const handleChangeFocus = (e) => {
-        setFocus(e.target.value);
-        console.log(e.target.value)
         dispatch(updateFocusThunk(e.target.value, auth))
 
     }
@@ -119,7 +116,7 @@ const Profile = () => {
         for (let key in skills) {
             let id = 'none'
             for (let i = 0; i < skillList.length; i++) {
-                if (skillList[i]['name'] == key) {
+                if (skillList[i]['name'] === key) {
                     id = skillList[i]['id'];
                 }
                 else {
@@ -167,7 +164,7 @@ const Profile = () => {
                 </div>
             </div>
             <div className={classes.theme}>
-                <img src={person} className={classes.image}></img>
+                <img src={person} className={classes.image} alt=''></img>
                 <h3>{auth.username}</h3>
                 <h3>Focus: {auth.focus}</h3>
                 <form>

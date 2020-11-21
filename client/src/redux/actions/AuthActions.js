@@ -1,5 +1,3 @@
-import Cookies from "js-cookie";
-
 export const SET_USER = "SET_USER";
 export const REMOVE_USER = "REMOVE_USER";
 export const CREATE_USER = "CREATE_USER";
@@ -55,7 +53,7 @@ export const login = (email, password) => {
     };
 };
 
-export const updateFocusThunk = (focus,user) => {
+export const updateFocusThunk = (focus, user) => {
 
     return async dispatch => {
         const res = await fetch(`/api/users/update/focus`, {
@@ -95,7 +93,7 @@ export const updateUserSkillThunk = (user) => {
         return res;
     };
 };
-export const updateThemeThunk = (theme,user) => {
+export const updateThemeThunk = (theme, user) => {
 
     return async dispatch => {
         const res = await fetch(`/api/users/update/theme`, {
@@ -104,7 +102,7 @@ export const updateThemeThunk = (theme,user) => {
                 'Content-Type': 'application/json',
                 // "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
             },
-            body: JSON.stringify({ theme,user }),
+            body: JSON.stringify({ theme, user }),
         });
 
         if (res.ok) {
@@ -141,7 +139,7 @@ export const signup = (username, email, password) => async dispatch => {
         body: JSON.stringify({ username, email, password }),
     });
     if (response.ok) {
-        const  user  = await response.json();
+        const user = await response.json();
         console.log(user);
         dispatch(createUser(user));
     }

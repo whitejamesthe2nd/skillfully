@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { useDispatch} from "react-redux";
+import React from 'react';
+import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import galaxy1 from './galaxy1.jpg'
 // import { fourtyTimer, twentyTimer, fifteenTimer } from "./timers";
@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux';
 
 
 function Pomodoro(props) {
-    const theme = useSelector((state)=> state.auth.theme)
+    const theme = useSelector((state) => state.auth.theme)
     console.log(theme);
-    let galaxy =''
-    if(theme === 'galaxy'){
+    let galaxy = ''
+    if (theme === 'galaxy') {
         galaxy = galaxy1
     }
     const useStyles = makeStyles({
@@ -60,85 +60,85 @@ function Pomodoro(props) {
             backgroundColor: 'black',
             height: '100px',
             paddingTop: '30px',
-            borderRadius:'7px'
+            borderRadius: '7px'
         }
 
     })
-    const user = useSelector((state)=> state.auth )
+    const user = useSelector((state) => state.auth)
     const dispatch = useDispatch();
 
-// Timers
- const fourtyTimer = () => {
-    // Set the date we're counting down to
-    let distance = 5;
+    // Timers
+    const fourtyTimer = () => {
+        // Set the date we're counting down to
+        let distance = 5;
 
-    // Update the count down every 1 second
-    let x = setInterval(function () {
+        // Update the count down every 1 second
+        let x = setInterval(function () {
 
-        distance = distance - 1;
+            distance = distance - 1;
 
-        let minutes = Math.floor((distance / 60));
-        let seconds = Math.floor((distance % 60));
+            let minutes = Math.floor((distance / 60));
+            let seconds = Math.floor((distance % 60));
 
-        // Display the result in the element with id="timer"
-        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+            // Display the result in the element with id="timer"
+            document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
 
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "Estatic Experience";
-            user['user_skill'][user.focus] += 1;
-            console.log(user['user_skill'])
-            dispatch(updateUserSkillThunk(user))
-            window.alert('One more step to mastery down');
-        }
-    }, 1000);
-}
- const twentyTimer = () => {
-    // Set the date we're counting down to
-    let distance = 1500;
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "Estatic Experience";
+                user['user_skill'][user.focus] += 1;
+                console.log(user['user_skill'])
+                dispatch(updateUserSkillThunk(user))
+                window.alert('One more step to mastery down');
+            }
+        }, 1000);
+    }
+    const twentyTimer = () => {
+        // Set the date we're counting down to
+        let distance = 1500;
 
-    // Update the count down every 1 second
-    let x = setInterval(function () {
+        // Update the count down every 1 second
+        let x = setInterval(function () {
 
-        distance = distance - 1;
+            distance = distance - 1;
 
-        let minutes = Math.floor((distance / 60));
-        let seconds = Math.floor((distance % 60));
+            let minutes = Math.floor((distance / 60));
+            let seconds = Math.floor((distance % 60));
 
-        // Display the result in the element with id="timer"
-        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+            // Display the result in the element with id="timer"
+            document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
 
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "Sweet Victory";
-            window.alert('One more step to mastery down');
-        }
-    }, 1000);
-}
- const fifteenTimer = (time) => {
-    // Set the date we're counting down to
-    let distance = 900;
-    // Update the count down every 1 second
-    let x = setInterval(function () {
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "Sweet Victory";
+                window.alert('One more step to mastery down');
+            }
+        }, 1000);
+    }
+    const fifteenTimer = (time) => {
+        // Set the date we're counting down to
+        let distance = 900;
+        // Update the count down every 1 second
+        let x = setInterval(function () {
 
-        distance = distance - 1;
+            distance = distance - 1;
 
-        let minutes = Math.floor((distance / 60));
-        let seconds = Math.floor((distance % 60));
+            let minutes = Math.floor((distance / 60));
+            let seconds = Math.floor((distance % 60));
 
-        // Display the result in the element with id="timer"
-        document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s " ;
+            // Display the result in the element with id="timer"
+            document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
 
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "Feel refreshed?";
-            window.alert('The rest ends and the struggle begins');
-        }
-    }, 1000);
-}
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "Feel refreshed?";
+                window.alert('The rest ends and the struggle begins');
+            }
+        }, 1000);
+    }
 
     const classes = useStyles()
     return (

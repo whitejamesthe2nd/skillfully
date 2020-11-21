@@ -36,12 +36,12 @@ function App() {
             generateSession()
         }
     }
-    ,[])
+    ,[auth.id, dispatch])
 
 
     useEffect(()=>{
         dispatch(loadSkillsThunk());
-    }, [auth])
+    }, [auth,dispatch])
 
   return (
     <BrowserRouter>

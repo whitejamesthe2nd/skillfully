@@ -12,46 +12,45 @@ function Login(props) {
     console.log(password)
     const dispatch = useDispatch()
     const history = useHistory();
-    const auth = useSelector((state)=> state.auth.id)
-    const theme= useSelector((state)=> state.auth.theme)
+    const auth = useSelector((state) => state.auth.id)
     const useStyles = makeStyles({
-        container:{
+        container: {
             dipslay: 'grid',
-            height:'820px',
+            height: '820px',
             // backgroundColor: 'yellow',
 
         },
         loginDiv: {
-            display:'flex',
-            justifyContent:'center',
+            display: 'flex',
+            justifyContent: 'center',
         },
-        form:{
+        form: {
             fontSize: '24px'
         },
-        email:{
+        email: {
             gridRowStart: '2',
-            width:'200px',
+            width: '200px',
             height: '25px',
             fontSize: '16px',
-            borderRadius:'5px'
+            borderRadius: '5px'
         },
-        password:{
-            width:'200px',
+        password: {
+            width: '200px',
             height: '25px',
             fontSize: '16px',
-            borderRadius:'5px'
+            borderRadius: '5px'
 
         },
-        submit:{
+        submit: {
             width: '100px',
             height: '25px',
-            backgroundColor:'white',
-            borderRadius:'5px'
+            backgroundColor: 'white',
+            borderRadius: '5px'
         },
-        centerMe:{
+        centerMe: {
             backgrouundColor: 'yellow',
             display: 'flex',
-            justifyContent:'center'
+            justifyContent: 'center'
         }
     })
 
@@ -72,34 +71,34 @@ function Login(props) {
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)
     }
-    if(auth){
+    if (auth) {
 
         history.push('/profile')
     }
     return (
         <>
-        <div className={classes.container}>
+            <div className={classes.container}>
 
-            <div className={classes.loginDiv}>
-                <form onSubmit={handleSubmit} className={classes.form}>
-                <div>
-                <h3>Welcome To Skillfully Please Login</h3>
+                <div className={classes.loginDiv}>
+                    <form onSubmit={handleSubmit} className={classes.form}>
+                        <div>
+                            <h3>Welcome To Skillfully Please Login</h3>
+                        </div>
+                        <div className={classes.centerMe}>
+                            <input type="email" placeholder={'email'} className={classes.email} onChange={handleChangeEmail}></input>
+                        </div>
+                        <div className={classes.centerMe}>
+                            <input type='password' placeholder={'password'} className={classes.password} onChange={handleChangePassword}></input>
+                        </div>
+                        <div className={classes.centerMe}>
+                            <button type='submit' className={classes.submit}>Submit</button>
+                            <button className={classes.submit} onClick={() => history.push('/signup')}>SignUp</button>
+                            <button className={classes.submit} onClick={handleSubmitDemo}>Demo</button>
+                        </div>
+                    </form>
                 </div>
-                    <div className={classes.centerMe}>
-                        <input type="email" placeholder={'email'} className={classes.email} onChange={handleChangeEmail}></input>
-                    </div>
-                    <div className={classes.centerMe}>
-                        <input type='password' placeholder={'password'} className={classes.password} onChange={handleChangePassword}></input>
-                    </div>
-                    <div className={classes.centerMe}>
-                        <button type='submit' className={classes.submit}>Submit</button>
-                        <button  className={classes.submit} onClick={()=> history.push('/signup')}>SignUp</button>
-                        <button  className={classes.submit} onClick={handleSubmitDemo}>Demo</button>
-                    </div>
-                </form>
-            </div>
 
-        </div>
+            </div>
         </>
     );
 }

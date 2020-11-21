@@ -22,12 +22,6 @@ function Navbar() {
             textDecoration: 'none',
             paddingRight: '20px'
         },
-        btn:{
-            borderRadius:'10px',
-            width: '100px',
-            height:'50px',
-            marginRight: '30px'
-        },
         btnBox:{
             gridColumnStart:'2',
             display: 'flex',
@@ -40,16 +34,6 @@ function Navbar() {
             fontSize:'26px',
             paddingLeft:'30px'
         },
-        btn:{
-            height: '25px',
-            color: 'white',
-            backgroundColor: 'black',
-            border: '0px',
-            fontSize: '24px',
-            fontWeight: '600',
-            textDecoration: 'none',
-        }
-
     })
     const dispatch = useDispatch();
     const auth = useSelector((state)=> state.auth)
