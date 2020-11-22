@@ -32,7 +32,7 @@ def sign_up():
     hashed_pass = generate_password_hash(password, method='sha256')
     default_skill = json.dumps({'learning':0})
 
-    new_user = User(username=username, email=email, hashed_password=hashed_pass, user_skills=default_skill, focus='', theme='')
+    new_user = User(username=username, email=email, hashed_password=hashed_pass, user_skills=default_skill, focus='', theme='galaxy')
     db.session.add(new_user)
     db.session.commit()
     # Create the tokens we will be sending back to the user
