@@ -66,14 +66,19 @@ function Pomodoro(props) {
     })
     const user = useSelector((state) => state.auth)
     const dispatch = useDispatch();
+    let x = null;
 
     // Timers
     const fourtyTimer = () => {
+
+        if(x){
+            clearInterval(x);
+        }
         // Set the date we're counting down to
         let distance = 5;
 
         // Update the count down every 1 second
-        let x = setInterval(function () {
+        x = setInterval(function () {
 
             distance = distance - 1;
 
@@ -95,11 +100,15 @@ function Pomodoro(props) {
         }, 1000);
     }
     const twentyTimer = () => {
+
+        if(x){
+            clearInterval(x);
+        }
         // Set the date we're counting down to
-        let distance = 1500;
+        let distance = 5;
 
         // Update the count down every 1 second
-        let x = setInterval(function () {
+        x = setInterval(function () {
 
             distance = distance - 1;
 
@@ -118,10 +127,13 @@ function Pomodoro(props) {
         }, 1000);
     }
     const fifteenTimer = (time) => {
+        if(x){
+            clearInterval(x);
+        }
         // Set the date we're counting down to
         let distance = 900;
         // Update the count down every 1 second
-        let x = setInterval(function () {
+        x = setInterval(function () {
 
             distance = distance - 1;
 
