@@ -29,7 +29,7 @@ export const loadSkills = (skills) => {
 export const loadSkillsThunk = () => {
 
     return async dispatch => {
-        const res = await fetch(`/api/skills`);
+        const res = await fetch(`/api/skills/`);
 
         if (res.ok) {
             const data = await res.json();
