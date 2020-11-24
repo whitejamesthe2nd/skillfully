@@ -74,6 +74,7 @@ const Profile = () => {
             width: ' 300px'
         },
         content: {
+            border:'solid black',
             gridColumnStart: '2',
             backgroundColor: `${backgroundColor}`,
             color: `${color}`,
