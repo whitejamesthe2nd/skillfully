@@ -12,3 +12,5 @@ This app will be automatically built when you deploy to heroku, please see the `
 drills with practice templates
 add array to database that is just a string and splits at a special character *
 templates added to skills?
+do readme
+restyle login page
