@@ -15,14 +15,19 @@ function Login(props) {
     const auth = useSelector((state) => state.auth.id)
     const useStyles = makeStyles({
         container: {
-            dipslay: 'grid',
+            display: 'grid',
+            gridTemplateColumns:'1fr 2fr 1fr',
             height: '820px',
-            // backgroundColor: 'yellow',
+            marginTop: '10rem',
 
         },
         loginDiv: {
+            gridColumnStart: '2',
+            border: ' solid black',
             display: 'flex',
             justifyContent: 'center',
+            height:'15rem',
+            borderRadius: '5px'
         },
         form: {
             fontSize: '24px'
@@ -48,9 +53,9 @@ function Login(props) {
             borderRadius: '5px'
         },
         centerMe: {
-            backgrouundColor: 'yellow',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            paddingBottom: '10px',
         }
     })
 
@@ -97,7 +102,6 @@ function Login(props) {
                         </div>
                     </form>
                 </div>
-
             </div>
         </>
     );
