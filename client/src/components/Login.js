@@ -17,7 +17,7 @@ function Login(props) {
         container: {
             display: 'grid',
             gridTemplateColumns:'1fr 2fr 1fr',
-            height: '820px',
+            height: '42rem',
             marginTop: '10rem',
 
         },

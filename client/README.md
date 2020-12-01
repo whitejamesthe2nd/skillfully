@@ -14,3 +14,4 @@ add array to database that is just a string and splits at a special character *
 templates added to skills?
 do readme
 restyle login page
+focus on everything but first solo for now
