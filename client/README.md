@@ -15,4 +15,4 @@ templates added to skills?
 do readme
 restyle login page
 focus on everything but first solo for now
-keep pumping
+fix footer
