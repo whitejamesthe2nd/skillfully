@@ -12,15 +12,17 @@ const SkillDisplay = (props) =>{
 
     } = props
 
-    let color = '';
+    let color = 'black';
     if(theme === 'galaxy'){
         color = 'white';
     }
     const useStyles = makeStyles({
         content:{
             display: 'flex',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             fontSize: '20px',
+            marginLeft:'150px',
+            marginRight:'150px',
         },
         link:{
             color: `${color}`,

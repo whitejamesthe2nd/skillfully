@@ -19,7 +19,7 @@ const Profile = () => {
     const theme = auth.theme;
     const history = useHistory();
     let pageTheme = '';
-    let color = '';
+    let color = 'black';
     let backgroundColor = '';
     let boxShadow = '';
     if (theme === 'galaxy') {
@@ -41,7 +41,8 @@ const Profile = () => {
         },
         skill: {
             gridColumnStart: '2',
-            // backgroundColor: 'yellow'
+            color: `${color}`,
+            textDecoration:'none'
         },
         start: {
             gridColumnStart: '1',
