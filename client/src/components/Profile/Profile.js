@@ -39,11 +39,6 @@ const Profile = () => {
             color: `${color}`,
             backgroundSize: '100% 100%'
         },
-        image: {
-            height: '200px',
-            width: '200px',
-            paddingLeft: '50px'
-        },
         skill: {
             gridColumnStart: '2',
             // backgroundColor: 'yellow'
@@ -59,22 +54,8 @@ const Profile = () => {
             fontSize: '30px',
             paddingLeft: '34px'
         },
-        theme: {
-            gridColumnStart: '1',
-            gridRowStart: '2',
-            marginTop: '6px',
-            paddingLeft: '15px',
-            paddingBottom: '15px',
-            backgroundColor: `${backgroundColor}`,
-            color: `${color}`,
-            borderRadius: '10px',
-            fontWeight: '600',
-            fontSize: '18px',
-            boxShadow: `${boxShadow}`,
-            width: ' 300px'
-        },
         content: {
-            border:'solid black',
+            border: 'solid black',
             gridColumnStart: '2',
             backgroundColor: `${backgroundColor}`,
             color: `${color}`,
@@ -91,6 +72,59 @@ const Profile = () => {
         },
         formElement: {
             marginLeft: '113px',
+        },
+        // avatar panel
+        avatarPanel: {
+            gridColumnStart: '1',
+            gridRowStart: '2',
+            marginTop: '6px',
+            paddingBottom: '15px',
+            backgroundColor: `${backgroundColor}`,
+            color: `${color}`,
+            borderRadius: '10px',
+            fontWeight: '600',
+            fontSize: '18px',
+            boxShadow: `${boxShadow}`,
+            border: 'solid black',
+            width: ' 20rem',
+            height:'20rem',
+            display: 'grid',
+            gridTemplateRows: '200px 150px',
+        },
+        image: {
+            height: '200px',
+            width: '200px',
+            paddingLeft: '50px'
+        },
+        words:{
+            paddingRight:'27px',
+            display:'grid',
+            gridRowStart:'2',
+            gridTemplateRows:'30px 30px 30px 30px',
+        },
+        name: {
+            gridRowStart: '1',
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+        },
+        focus: {
+            gridRowStart: '2',
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center'
+        },
+        themeChanger: {
+            gridRowStart: '3',
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center'
+        },
+        focusChanger: {
+            gridRowStart: '4',
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center'
         }
 
     })
@@ -147,8 +181,7 @@ const Profile = () => {
 
     return (
         <div className={classes.container}>
-            <div className={classes.start} >
-            </div>
+
 
             <div className={classes.content}>
                 <div className={classes.label}>
@@ -164,24 +197,27 @@ const Profile = () => {
                     </form>
                 </div>
             </div>
-            <div className={classes.theme}>
+            <div className={classes.avatarPanel}>
                 <img src={person} className={classes.image} alt=''></img>
-                <h3>{auth.username}</h3>
-                <h3>Focus: {auth.focus}</h3>
-                <form>
-                    <label>Theme</label>
-                    <select onChange={handleChange}>
-                        <option value='none'> None</option>
-                        <option value='day'>Day</option>
-                        <option value='night'>Night</option>
-                        <option value='galaxy'> Galaxy</option>
-                    </select>
-                    <br></br>
-                    <label>     Focus</label>
-                    <select onChange={handleChangeFocus}>
-                        {options ? options : null}
-                    </select>
-                </form>
+                <div className={classes.words}>
+                        <h3 className={classes.name}>{auth.username}</h3>
+                        <h3 className={classes.focus}>Focus: {auth.focus}</h3>
+                        <form className={classes.themeChanger}>
+                            <label>Theme</label>
+                            <select onChange={handleChange}>
+                                <option value='none'> None</option>
+                                <option value='day'>Day</option>
+                                <option value='night'>Night</option>
+                                <option value='galaxy'> Galaxy</option>
+                            </select>
+                        </form>
+                        <form className={classes.focusChanger}>
+                            <label>     Focus</label>
+                            <select onChange={handleChangeFocus}>
+                                {options ? options : null}
+                            </select>
+                        </form>
+                </div>
             </div>
 
 
