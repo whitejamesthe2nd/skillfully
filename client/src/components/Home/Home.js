@@ -61,13 +61,15 @@ const Home = () => {
                 </p>
                 </div>
                 <div>
-                    <h1 className={classes.container}>Tips for Learning</h1>
+                    <h1 className={classes.container}>How to use Skillfully</h1>
                     <div className={classes.container} >
-                        <ul>
-                            <li>Keep whatever tools you need to practice availbale with little resistence</li>
-                            <li>Use pomodoro timers to get your self in the flow state</li>
-                            <li>Use spaced repition for more consitent memory</li>
-                        </ul>
+                        <ol>
+                            <li>Sign up and then head to the profile page.</li>
+                            <li>Add your skills to the list to keep track of your progress</li>
+                            <li>Use the Pomodoro timer section to remain accountable and trackable</li>
+                            <li>Click on any skill and use the skill guide or add one if one isn't present</li>
+                            <li>Stay focused and have fun</li>
+                        </ol>
                     </div>
                 </div>
                 </div>
