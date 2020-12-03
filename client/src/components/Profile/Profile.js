@@ -72,7 +72,7 @@ const Profile = () => {
             justifyContent: 'center',
         },
         formElement: {
-            marginLeft: '113px',
+            marginLeft: '150px',
         },
         // avatar panel
         avatarPanel: {
@@ -158,7 +158,6 @@ const Profile = () => {
                 else {
                     id = 'none'
                 }
-                console.log(id)
             }
             userSkills.push(
                 <div className={classes.skill}>
