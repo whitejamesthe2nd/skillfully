@@ -20,7 +20,7 @@ const Profile = () => {
     const history = useHistory();
     let pageTheme = '';
     let color = 'black';
-    let backgroundColor = '';
+    let backgroundColor = 'white';
     let boxShadow = '';
     let border = 'solid black';
     if (theme === 'galaxy') {
@@ -34,19 +34,18 @@ const Profile = () => {
         color = 'white';
         backgroundColor = 'black';
         border= 'solid white';
-
     }
     console.log(pageTheme)
 
     const useStyles = makeStyles({
         container: {
             display: 'grid',
-            gridTemplateRows: '50px 1fr 350px',
+            gridTemplateRows: '50px 1fr 45vh',
             gridTemplateColumns: '1fr 2fr 1fr',
             backgroundImage: `url(${pageTheme})`,
             color: `${color}`,
             backgroundSize: '100% 100%',
-            backgroundColor: 'black',
+            backgroundColor: `${backgroundColor}`,
         },
         skill: {
             gridColumnStart: '2',

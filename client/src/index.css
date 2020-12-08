@@ -1,4 +1,8 @@
 /* TODO Add site wide styles */
 body{
     font-family: 'Times New Roman', Times, serif;
+    background-color: whitesmoke;
+}
+body,html{
+    height: 100%;
 }

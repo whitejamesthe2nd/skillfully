@@ -14,6 +14,17 @@ function Pomodoro(props) {
     if (theme === 'galaxy') {
         galaxy = galaxy1
     }
+    let backgroundColor = '';
+    let color = '';
+    let border = '';
+
+
+    if(theme === 'night'){
+        color = 'white';
+        backgroundColor = 'black';
+        border = 'solid white';
+
+    }
     const useStyles = makeStyles({
         container: {
             display: 'grid',
@@ -21,6 +32,7 @@ function Pomodoro(props) {
             gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
             backgroundImage: `url(${galaxy})`,
             backgroundSize: '100% 100%',
+            backgroundColor: `${backgroundColor}`
         },
         firstButtonDiv: {
             gridRowStart: '3',
@@ -60,7 +72,8 @@ function Pomodoro(props) {
             backgroundColor: 'black',
             height: '100px',
             paddingTop: '30px',
-            borderRadius: '7px'
+            borderRadius: '7px',
+            border: `${border}`
         }
 
     })
@@ -105,7 +118,7 @@ function Pomodoro(props) {
             clearInterval(x);
         }
         // Set the date we're counting down to
-        let distance = 5;
+        let distance = 1500;
 
         // Update the count down every 1 second
         x = setInterval(function () {
