@@ -22,11 +22,19 @@ const Profile = () => {
     let color = 'black';
     let backgroundColor = '';
     let boxShadow = '';
+    let border = 'solid black';
     if (theme === 'galaxy') {
         pageTheme = galaxy;
         color = 'white';
         backgroundColor = 'black'
         boxShadow = 'purple 15px 15px 20px'
+    }
+    if(theme === 'night'){
+        pageTheme = 'none';
+        color = 'white';
+        backgroundColor = 'black';
+        border= 'solid white';
+
     }
     console.log(pageTheme)
 
@@ -37,7 +45,8 @@ const Profile = () => {
             gridTemplateColumns: '1fr 2fr 1fr',
             backgroundImage: `url(${pageTheme})`,
             color: `${color}`,
-            backgroundSize: '100% 100%'
+            backgroundSize: '100% 100%',
+            backgroundColor: 'black',
         },
         skill: {
             gridColumnStart: '2',
@@ -56,7 +65,7 @@ const Profile = () => {
             paddingLeft: '34px'
         },
         content: {
-            border: 'solid black',
+            border: `${border}`,
             gridColumnStart: '2',
             backgroundColor: `${backgroundColor}`,
             color: `${color}`,
@@ -86,7 +95,7 @@ const Profile = () => {
             fontWeight: '600',
             fontSize: '18px',
             boxShadow: `${boxShadow}`,
-            border: 'solid black',
+            border: `${border}`,
             width: ' 20rem',
             height:'20rem',
             display: 'grid',

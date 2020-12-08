@@ -16,6 +16,9 @@ const SkillDisplay = (props) =>{
     if(theme === 'galaxy'){
         color = 'white';
     }
+    if(theme === 'night'){
+        color = 'white';
+    }
     const useStyles = makeStyles({
         content:{
             display: 'flex',
