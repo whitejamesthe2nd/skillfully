@@ -46,6 +46,7 @@ const Profile = () => {
             color: `${color}`,
             backgroundSize: '100% 100%',
             backgroundColor: `${backgroundColor}`,
+            border: `${border}`,
         },
         skill: {
             gridColumnStart: '2',

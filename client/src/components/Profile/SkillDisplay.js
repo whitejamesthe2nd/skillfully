@@ -29,6 +29,7 @@ const SkillDisplay = (props) =>{
         },
         link:{
             color: `${color}`,
+            textDecoration: 'none',
         }
 
     })

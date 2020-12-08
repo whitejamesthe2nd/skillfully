@@ -32,7 +32,8 @@ function Pomodoro(props) {
             gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
             backgroundImage: `url(${galaxy})`,
             backgroundSize: '100% 100%',
-            backgroundColor: `${backgroundColor}`
+            backgroundColor: `${backgroundColor}`,
+            border: `${border}`
         },
         firstButtonDiv: {
             gridRowStart: '3',
