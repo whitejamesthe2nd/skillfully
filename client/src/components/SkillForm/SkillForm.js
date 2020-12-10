@@ -16,7 +16,19 @@ const SkillForm = () => {
             gridColumnStart: '2',
             display: 'flex',
             flexDirection: 'column'
-        }
+        },
+        header: {
+            display: 'flex',
+            justifyContent: 'center',
+        },
+        guide:{
+
+        },
+        formElement:{
+            margin: '5px',
+
+
+        },
     })
 
 
@@ -49,14 +61,18 @@ const SkillForm = () => {
     return (
         <div className={classes.container}>
             <form className={classes.form} onSubmit={handleSubmit}>
-                <h1> Create a Skill Guide</h1>
-                <input type='text' placeholder='Skill Name' onChange={(e) => setName(e.target.value)}></input>
-                <textarea placeholder='Skill Tip 1' onChange={(e) => setTip1(e.target.value)}></textarea>
-                <textarea placeholder='Skill Tip 2' onChange={(e) => setTip2(e.target.value)}></textarea>
-                <textarea placeholder='Skill Tip 3' onChange={(e) => setTip3(e.target.value)}></textarea>
-                <input type='text' placeholder='Skill Resource 1' onChange={(e) => setResource1(e.target.value)}></input>
-                <input type='text' placeholder='Skill Resource 2' onChange={(e) => setResource2(e.target.value)}></input>
-                <input type='text' placeholder='Skill Resource 3' onChange={(e) => setResource3(e.target.value)}></input>
+                <h1 className={classes.header}> Create a Skill Guide</h1>
+                <div className={classes.guide}><p> This is meant to be a guide to help you study and as such please use the tips to create a way to keep you on track
+                    and the resources are links to anything that you may need for studying on any given day. I would recomend that for each tip a resource may be afflaited
+                    for example programming you may reccomend as a tip to study a certain stack of data structures and algorithim's problems please provide a link to that stack in the resources</p>
+                </div>
+                <input type='text' placeholder='Skill Name' onChange={(e) => setName(e.target.value)} className={classes.formElement}></input>
+                <textarea placeholder='Skill Tip 1' onChange={(e) => setTip1(e.target.value)} className={classes.formElement}></textarea>
+                <textarea placeholder='Skill Tip 2' onChange={(e) => setTip2(e.target.value)} className={classes.formElement}></textarea>
+                <textarea placeholder='Skill Tip 3' onChange={(e) => setTip3(e.target.value)} className={classes.formElement}></textarea>
+                <input type='text' placeholder='Skill Resource 1' onChange={(e) => setResource1(e.target.value)} className={classes.formElement}></input>
+                <input type='text' placeholder='Skill Resource 2' onChange={(e) => setResource2(e.target.value)} className={classes.formElement}></input>
+                <input type='text' placeholder='Skill Resource 3' onChange={(e) => setResource3(e.target.value)} className={classes.formElement}></input>
                 <button type='submit'>Create</button>
             </form>
         </div>
