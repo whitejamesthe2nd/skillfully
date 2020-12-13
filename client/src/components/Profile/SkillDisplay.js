@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core";
 import { NavLink } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import { useSelector,useDispatch } from 'react-redux';
-import {updateUserSkillThunk} from '../../redux/actions/AuthActions'
+import {updateUserSkillThunk} from '../../redux/actions/AuthActions';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const SkillDisplay = (props) =>{
@@ -61,6 +62,9 @@ const SkillDisplay = (props) =>{
         setHours(e.target.value);
         console.log(hours);
     }
+    const deleteSkill= (e)=>{
+
+    }
 
 
     const classes = useStyles()
@@ -74,6 +78,7 @@ const SkillDisplay = (props) =>{
                 </form>
                 :<span> {`${time} hrs`}
                 <EditIcon onClick={handleClick}></EditIcon>
+                <DeleteIcon onClick={deleteSkill}></DeleteIcon>
                 </span> }
 
             </div>
