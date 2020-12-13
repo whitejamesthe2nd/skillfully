@@ -178,8 +178,13 @@ const Profile = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        auth.user_skill[skillName] = parseInt(hours);
-        dispatch(updateUserSkillThunk(auth));
+        if(hours && skillName){
+
+            auth.user_skill[skillName] = parseInt(hours);
+            dispatch(updateUserSkillThunk(auth));
+        }else{
+            window.alert('Please enter valid form data');
+        }
     }
 
     const auth2 = useSelector((state) => state.auth.id)
