@@ -57,6 +57,14 @@ def update_skills():
     db.session.commit()
     return jsonify(user.to_dict())
 
+# @user_routes.route('/delete/skills', methods=['DELETE'])
+# def update_skills():
+#     data = request.json
+#     user = User.query.get(data['user']['id'])
+#     user.user_skills = json.dumps(data['user']['user_skill'])
+#     db.session.commit()
+#     return jsonify(user.to_dict())
+
 @user_routes.route('/update/focus', methods=['PUT'])
 def update_focus():
     data = request.json

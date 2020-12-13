@@ -6,3 +6,7 @@ body{
 body,html{
     height: 100%;
 }
+.icon:hover{
+ cursor: pointer;
+ margin-left: 4px;
+}

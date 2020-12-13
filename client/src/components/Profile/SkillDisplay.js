@@ -35,7 +35,7 @@ const SkillDisplay = (props) =>{
         link:{
             color: `${color}`,
             textDecoration: 'none',
-        }
+        },
 
     })
     const [hours, setHours] = useState(time);
@@ -63,6 +63,9 @@ const SkillDisplay = (props) =>{
         console.log(hours);
     }
     const deleteSkill= (e)=>{
+        e.preventDefault();
+        delete auth.user_skill[skill];
+        dispatch(updateUserSkillThunk(auth));
 
     }
 
@@ -77,8 +80,8 @@ const SkillDisplay = (props) =>{
                     <button type='submit' onSubmit={handleSubmit}>Submit</button>
                 </form>
                 :<span> {`${time} hrs`}
-                <EditIcon onClick={handleClick}></EditIcon>
-                <DeleteIcon onClick={deleteSkill}></DeleteIcon>
+                <EditIcon onClick={handleClick} className='icon'></EditIcon>
+                <DeleteIcon onClick={deleteSkill} className='icon' ></DeleteIcon>
                 </span> }
 
             </div>
