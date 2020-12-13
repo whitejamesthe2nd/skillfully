@@ -179,7 +179,7 @@ const Profile = () => {
     const handleClick = (e) => {
         e.preventDefault();
         auth.user_skill[skillName] = parseInt(hours);
-        dispatch(updateUserSkillThunk(auth))
+        dispatch(updateUserSkillThunk(auth));
     }
 
     const auth2 = useSelector((state) => state.auth.id)
