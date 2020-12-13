@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from "@material-ui/core";
 import { NavLink } from 'react-router-dom';
+import EditIcon from '@material-ui/icons/Edit';
 
 const SkillDisplay = (props) =>{
 
@@ -33,16 +34,32 @@ const SkillDisplay = (props) =>{
         }
 
     })
+    const [clicked, steClicked] = useState(false)
+    const handleClick = (e)=>{
+        if(clicked){
+            steClicked(false);
+        }else{
+            steClicked(true)
+        }
+        console.log(clicked)
+    }
+    const handleSubmit = (e)=>{
 
-
-
+    }
 
 
     const classes = useStyles()
         return (
             <div className={classes.content}>
                 <NavLink to={`/skills/${id}`} className={classes.link} activeclass='active'><span>{`${skill}`}:</span></NavLink>
-                <span> {`${time} hrs`}</span>
+                {clicked ?
+                <form onSubmit={handleSubmit}>
+                    <input type='number'></input>
+                </form>
+                :<span> {`${time} hrs`}
+                <EditIcon onClick={handleClick}></EditIcon>
+                </span> }
+
             </div>
         );
 }
