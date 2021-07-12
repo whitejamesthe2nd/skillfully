@@ -1,30 +1,36 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import galaxy1 from './galaxy1.jpg'
-// import { fourtyTimer, twentyTimer, fifteenTimer } from "./timers";
-import { updateUserSkillThunk } from "../../redux/actions/AuthActions";
+import galaxy1 from './galaxy1.jpg';
 import { useSelector } from 'react-redux';
+import {updateUserSkillThunk} from '../../redux/actions/AuthActions';
 
 
 function Pomodoro(props) {
+    //auth object
+    //declare
     const theme = useSelector((state) => state.auth.theme)
-    console.log(theme);
-    let galaxy = ''
-    if (theme === 'galaxy') {
-        galaxy = galaxy1
-    }
+    // ste theme variables
+    let galaxy = '';
     let backgroundColor = '';
     let color = '';
     let border = '';
+    //set user
+    const user = useSelector((state) => state.auth)
+    const dispatch = useDispatch();
+    let x = null;
+    // change galaxy1 to just galaxy
+    if (theme === 'galaxy') {
+        galaxy = galaxy1
+    }
 
 
     if(theme === 'night'){
         color = 'white';
         backgroundColor = 'black';
         border = 'solid white';
-
     }
+
     const useStyles = makeStyles({
         container: {
             display: 'grid',
@@ -78,9 +84,8 @@ function Pomodoro(props) {
         }
 
     })
-    const user = useSelector((state) => state.auth)
-    const dispatch = useDispatch();
-    let x = null;
+    // initialize the css classes
+    const classes = useStyles()
 
     // Timers
     const fourtyTimer = () => {
@@ -107,8 +112,7 @@ function Pomodoro(props) {
                 clearInterval(x);
                 document.getElementById("timer").innerHTML = "Estatic Experience";
                 user['user_skill'][user.focus] += 1;
-                console.log(user['user_skill'])
-                dispatch(updateUserSkillThunk(user))
+                dispatch(updateUserSkillThunk(user));
                 window.alert('One more step to mastery down');
             }
         }, 1000);
@@ -166,7 +170,6 @@ function Pomodoro(props) {
         }, 1000);
     }
 
-    const classes = useStyles()
     return (
         <>
             <div className={classes.container}>
