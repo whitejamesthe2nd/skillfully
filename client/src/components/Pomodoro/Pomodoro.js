@@ -7,10 +7,10 @@ import {updateUserSkillThunk} from '../../redux/actions/AuthActions';
 
 
 function Pomodoro(props) {
-    //auth object
     //declare
+    //auth object
     const theme = useSelector((state) => state.auth.theme)
-    // ste theme variables
+    // set theme variables
     let galaxy = '';
     let backgroundColor = '';
     let color = '';
@@ -19,7 +19,7 @@ function Pomodoro(props) {
     const user = useSelector((state) => state.auth)
     const dispatch = useDispatch();
     let x = null;
-    // change galaxy1 to just galaxy
+    //Theme Control
     if (theme === 'galaxy') {
         galaxy = galaxy1
     }
@@ -70,7 +70,6 @@ function Pomodoro(props) {
             fontSize: '22px'
         },
         timer: {
-
             gridColumnStart: "4",
             gridRowStart: "2",
             color: 'White',
