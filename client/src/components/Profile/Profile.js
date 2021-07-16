@@ -150,6 +150,7 @@ const Profile = () => {
     }
     let options = [<option value={'None'}>None</option>];
     let skillArray = []
+    //map over skillsarray to populate options
     if (skills) {
         skillArray = Object.keys(skills);
         skillArray.map((ele, i) => options.push(<option key={i} value={ele}>{`${ele}`}</option>))
