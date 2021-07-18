@@ -18,11 +18,13 @@ const Profile = () => {
     const skills = auth.user_skill;
     const theme = auth.theme;
     const history = useHistory();
+    // declarations
     let pageTheme = '';
     let color = 'black';
     let backgroundColor = 'white';
     let boxShadow = '';
     let border = 'solid black';
+    // Theme selection
     if (theme === 'galaxy') {
         pageTheme = galaxy;
         color = 'white';
