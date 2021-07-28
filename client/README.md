@@ -12,3 +12,4 @@ This app will be automatically built when you deploy to heroku, please see the `
 drills with practice templates
 templates added to skills?
 tailwind maybe
+Tomorrow will be a long day
